@@ -1,0 +1,101 @@
+/* ==========================================================================
+	#Fonts
+========================================================================== */
+@font-face {
+    font-family: 'Vollkorn';
+    src: url('fonts/vollkornregular.eot');
+    src: url('fonts/vollkornregular.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vollkornregular.woff') format('woff'),
+         url('fonts/vollkornregular.ttf') format('truetype'),
+         url('fonts/vollkornregular.svg#vollkornregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque Black';
+    src: url('fonts/brandon_blk.eot');
+    src: url('fonts/brandon_blk.eot?#iefix') format('embedded-opentype'),
+         url('fonts/brandon_blk.woff') format('woff'),
+         url('fonts/brandon_blk.ttf') format('truetype'),
+         url('fonts/brandon_blk.svg#brandon_grotesqueblack') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Klinic Slab Light';
+    src: url('fonts/klinicslablight.eot');
+    src: url('fonts/klinicslablight.eot?#iefix') format('embedded-opentype'),
+         url('fonts/klinicslablight.woff') format('woff'),
+         url('fonts/klinicslablight.ttf') format('truetype'),
+         url('fonts/klinicslablight.svg#klinic_slablight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vollkorn Italic';
+    src: url('fonts/vollkornitalic.eot');
+    src: url('fonts/vollkornitalic.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vollkornitalic.woff') format('woff'),
+         url('fonts/vollkornitalic.ttf') format('truetype'),
+         url('fonts/vollkornitalic.svg#vollkornitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque Bold';
+    src: url('fonts/brandon_bld.eot');
+    src: url('fonts/brandon_bld.eot?#iefix') format('embedded-opentype'),
+         url('fonts/brandon_bld.woff') format('woff'),
+         url('fonts/brandon_bld.ttf') format('truetype'),
+         url('fonts/brandon_bld.svg#brandon_grotesquebold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Brandon Grotesque';
+    src: url('fonts/brandon_reg.eot');
+    src: url('fonts/brandon_reg.eot?#iefix') format('embedded-opentype'),
+         url('fonts/brandon_reg.woff') format('woff'),
+         url('fonts/brandon_reg.ttf') format('truetype'),
+         url('fonts/brandon_reg.svg#brandon_grotesqueregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Vollkorn Bold';
+    src: url('fonts/vollkornbold.eot');
+    src: url('fonts/vollkornbold.eot?#iefix') format('embedded-opentype'),
+         url('fonts/vollkornbold.woff') format('woff'),
+         url('fonts/vollkornbold.ttf') format('truetype'),
+         url('fonts/vollkornbold.svg#vollkornbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Klinic Slab Book Italic';
+    src: url('fonts/klinicslabbookit.eot');
+    src: url('fonts/klinicslabbookit.eot?#iefix') format('embedded-opentype'),
+         url('fonts/klinicslabbookit.woff') format('woff'),
+         url('fonts/klinicslabbookit.ttf') format('truetype'),
+         url('fonts/klinicslabbookit.svg#klinic_slabbook_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lora Italic';
+    src: url('fonts/loraitalic.eot');
+    src: url('fonts/loraitalic.eot?#iefix') format('embedded-opentype'),
+         url('fonts/loraitalic.woff') format('woff'),
+         url('fonts/loraitalic.ttf') format('truetype'),
+         url('fonts/loraitalic.svg#loraitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}

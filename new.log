@@ -1,0 +1,2298 @@
+20220826 08:28:20 vpnpanel setup: INFO: Installing packages.
+20220826 08:28:20 vpnpanel setup: INFO: System updates.
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease [88.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease [74.6 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-security InRelease [88.7 kB]
+Fetched 252 kB in 1s (334 kB/s)
+Reading package lists...
+20220826 08:28:29 vpnpanel setup: INFO: System updates completed successfully.
+20220826 08:28:29 vpnpanel setup: INFO: Install MySQL server.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libencode-locale-perl
+  libevent-core-2.1-6 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl
+  libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl
+  liblwp-mediatypes-perl libtimedate-perl liburi-perl mysql-client-5.7
+  mysql-client-core-5.7 mysql-common mysql-server-5.7 mysql-server-core-5.7
+Suggested packages:
+  libdata-dump-perl libipc-sharedcache-perl libwww-perl mailx tinyca
+The following NEW packages will be installed:
+  libaio1 libcgi-fast-perl libcgi-pm-perl libencode-locale-perl
+  libevent-core-2.1-6 libfcgi-perl libhtml-parser-perl libhtml-tagset-perl
+  libhtml-template-perl libhttp-date-perl libhttp-message-perl libio-html-perl
+  liblwp-mediatypes-perl libtimedate-perl liburi-perl mysql-client-5.7
+  mysql-client-core-5.7 mysql-common mysql-server mysql-server-5.7
+  mysql-server-core-5.7
+0 upgraded, 21 newly installed, 0 to remove and 0 not upgraded.
+Need to get 20.0 MB of archives.
+After this operation, 157 MB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 mysql-common all 5.8+1.0.4 [7,308 B]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libaio1 amd64 0.3.110-5ubuntu0.1 [6,476 B]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 mysql-client-core-5.7 amd64 5.7.39-0ubuntu0.18.04.2 [6,746 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 mysql-client-5.7 amd64 5.7.39-0ubuntu0.18.04.2 [2,026 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 mysql-server-core-5.7 amd64 5.7.39-0ubuntu0.18.04.2 [7,531 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libevent-core-2.1-6 amd64 2.1.8-stable-4build1 [85.9 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 mysql-server-5.7 amd64 5.7.39-0ubuntu0.18.04.2 [3,001 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libhtml-tagset-perl all 3.20-3 [12.1 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 liburi-perl all 1.73-1 [77.2 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libhtml-parser-perl amd64 3.72-3build1 [85.9 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libcgi-pm-perl all 4.38-1 [185 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libfcgi-perl amd64 0.78-2build1 [32.8 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libcgi-fast-perl all 1:2.13-1 [9,940 B]
+Get:14 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libencode-locale-perl all 1.05-1 [12.3 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libhtml-template-perl all 2.97-1 [59.0 kB]
+Get:16 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libtimedate-perl all 2.3000-2 [37.5 kB]
+Get:17 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libhttp-date-perl all 6.02-1 [10.4 kB]
+Get:18 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libio-html-perl all 1.001-1 [14.9 kB]
+Get:19 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 liblwp-mediatypes-perl all 6.02-1 [21.7 kB]
+Get:20 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libhttp-message-perl all 6.14-1 [72.1 kB]
+Get:21 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 mysql-server all 5.7.39-0ubuntu0.18.04.2 [9,944 B]
+Preconfiguring packages ...
+Fetched 20.0 MB in 2s (10.3 MB/s)
+Selecting previously unselected package mysql-common.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 67444 files and directories currently installed.)
+Preparing to unpack .../0-mysql-common_5.8+1.0.4_all.deb ...
+Unpacking mysql-common (5.8+1.0.4) ...
+Selecting previously unselected package libaio1:amd64.
+Preparing to unpack .../1-libaio1_0.3.110-5ubuntu0.1_amd64.deb ...
+Unpacking libaio1:amd64 (0.3.110-5ubuntu0.1) ...
+Selecting previously unselected package mysql-client-core-5.7.
+Preparing to unpack .../2-mysql-client-core-5.7_5.7.39-0ubuntu0.18.04.2_amd64.deb ...
+Unpacking mysql-client-core-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Selecting previously unselected package mysql-client-5.7.
+Preparing to unpack .../3-mysql-client-5.7_5.7.39-0ubuntu0.18.04.2_amd64.deb ...
+Unpacking mysql-client-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Selecting previously unselected package mysql-server-core-5.7.
+Preparing to unpack .../4-mysql-server-core-5.7_5.7.39-0ubuntu0.18.04.2_amd64.deb ...
+Unpacking mysql-server-core-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Selecting previously unselected package libevent-core-2.1-6:amd64.
+Preparing to unpack .../5-libevent-core-2.1-6_2.1.8-stable-4build1_amd64.deb ...
+Unpacking libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up mysql-common (5.8+1.0.4) ...
+update-alternatives: using /etc/mysql/my.cnf.fallback to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Selecting previously unselected package mysql-server-5.7.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 67612 files and directories currently installed.)
+Preparing to unpack .../00-mysql-server-5.7_5.7.39-0ubuntu0.18.04.2_amd64.deb ...
+Unpacking mysql-server-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Selecting previously unselected package libhtml-tagset-perl.
+Preparing to unpack .../01-libhtml-tagset-perl_3.20-3_all.deb ...
+Unpacking libhtml-tagset-perl (3.20-3) ...
+Selecting previously unselected package liburi-perl.
+Preparing to unpack .../02-liburi-perl_1.73-1_all.deb ...
+Unpacking liburi-perl (1.73-1) ...
+Selecting previously unselected package libhtml-parser-perl.
+Preparing to unpack .../03-libhtml-parser-perl_3.72-3build1_amd64.deb ...
+Unpacking libhtml-parser-perl (3.72-3build1) ...
+Selecting previously unselected package libcgi-pm-perl.
+Preparing to unpack .../04-libcgi-pm-perl_4.38-1_all.deb ...
+Unpacking libcgi-pm-perl (4.38-1) ...
+Selecting previously unselected package libfcgi-perl.
+Preparing to unpack .../05-libfcgi-perl_0.78-2build1_amd64.deb ...
+Unpacking libfcgi-perl (0.78-2build1) ...
+Selecting previously unselected package libcgi-fast-perl.
+Preparing to unpack .../06-libcgi-fast-perl_1%3a2.13-1_all.deb ...
+Unpacking libcgi-fast-perl (1:2.13-1) ...
+Selecting previously unselected package libencode-locale-perl.
+Preparing to unpack .../07-libencode-locale-perl_1.05-1_all.deb ...
+Unpacking libencode-locale-perl (1.05-1) ...
+Selecting previously unselected package libhtml-template-perl.
+Preparing to unpack .../08-libhtml-template-perl_2.97-1_all.deb ...
+Unpacking libhtml-template-perl (2.97-1) ...
+Selecting previously unselected package libtimedate-perl.
+Preparing to unpack .../09-libtimedate-perl_2.3000-2_all.deb ...
+Unpacking libtimedate-perl (2.3000-2) ...
+Selecting previously unselected package libhttp-date-perl.
+Preparing to unpack .../10-libhttp-date-perl_6.02-1_all.deb ...
+Unpacking libhttp-date-perl (6.02-1) ...
+Selecting previously unselected package libio-html-perl.
+Preparing to unpack .../11-libio-html-perl_1.001-1_all.deb ...
+Unpacking libio-html-perl (1.001-1) ...
+Selecting previously unselected package liblwp-mediatypes-perl.
+Preparing to unpack .../12-liblwp-mediatypes-perl_6.02-1_all.deb ...
+Unpacking liblwp-mediatypes-perl (6.02-1) ...
+Selecting previously unselected package libhttp-message-perl.
+Preparing to unpack .../13-libhttp-message-perl_6.14-1_all.deb ...
+Unpacking libhttp-message-perl (6.14-1) ...
+Selecting previously unselected package mysql-server.
+Preparing to unpack .../14-mysql-server_5.7.39-0ubuntu0.18.04.2_all.deb ...
+Unpacking mysql-server (5.7.39-0ubuntu0.18.04.2) ...
+Setting up libhtml-tagset-perl (3.20-3) ...
+Setting up libevent-core-2.1-6:amd64 (2.1.8-stable-4build1) ...
+Setting up libencode-locale-perl (1.05-1) ...
+Setting up libtimedate-perl (2.3000-2) ...
+Setting up libio-html-perl (1.001-1) ...
+Setting up liblwp-mediatypes-perl (6.02-1) ...
+Setting up libaio1:amd64 (0.3.110-5ubuntu0.1) ...
+Setting up liburi-perl (1.73-1) ...
+Setting up libhtml-parser-perl (3.72-3build1) ...
+Setting up libcgi-pm-perl (4.38-1) ...
+Setting up mysql-client-core-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Setting up libfcgi-perl (0.78-2build1) ...
+Setting up libhttp-date-perl (6.02-1) ...
+Setting up libhtml-template-perl (2.97-1) ...
+Setting up mysql-server-core-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Setting up libcgi-fast-perl (1:2.13-1) ...
+Setting up libhttp-message-perl (6.14-1) ...
+Setting up mysql-client-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+Setting up mysql-server-5.7 (5.7.39-0ubuntu0.18.04.2) ...
+update-alternatives: using /etc/mysql/mysql.cnf to provide /etc/mysql/my.cnf (my.cnf) in auto mode
+Renaming removed key_buffer and myisam-recover options (if present)
+Created symlink /etc/systemd/system/multi-user.target.wants/mysql.service → /lib/systemd/system/mysql.service.
+Setting up mysql-server (5.7.39-0ubuntu0.18.04.2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for systemd (237-3ubuntu10.53) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+20220826 08:29:19 vpnpanel setup: INFO: MySQL server installation completed successfully.
+20220826 08:29:19 vpnpanel setup: INFO: Install apache2 server.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  apache2-bin apache2-data apache2-utils libapr1 libaprutil1
+  libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+Suggested packages:
+  www-browser apache2-doc apache2-suexec-pristine | apache2-suexec-custom
+  openssl-blacklist
+The following NEW packages will be installed:
+  apache2 apache2-bin apache2-data apache2-utils libapr1 libaprutil1
+  libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.2-0 ssl-cert
+0 upgraded, 10 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,730 kB of archives.
+After this operation, 6,997 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libapr1 amd64 1.6.3-2 [90.9 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libaprutil1 amd64 1.6.1-2 [84.4 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libaprutil1-dbd-sqlite3 amd64 1.6.1-2 [10.6 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libaprutil1-ldap amd64 1.6.1-2 [8,764 B]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 liblua5.2-0 amd64 5.2.4-1.1build1 [108 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 apache2-bin amd64 2.4.29-1ubuntu4.25 [1,072 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 apache2-utils amd64 2.4.29-1ubuntu4.25 [83.8 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 apache2-data all 2.4.29-1ubuntu4.25 [160 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 apache2 amd64 2.4.29-1ubuntu4.25 [95.1 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 ssl-cert all 1.0.39 [17.0 kB]
+Preconfiguring packages ...
+Fetched 1,730 kB in 1s (3,162 kB/s)
+Selecting previously unselected package libapr1:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 67971 files and directories currently installed.)
+Preparing to unpack .../0-libapr1_1.6.3-2_amd64.deb ...
+Unpacking libapr1:amd64 (1.6.3-2) ...
+Selecting previously unselected package libaprutil1:amd64.
+Preparing to unpack .../1-libaprutil1_1.6.1-2_amd64.deb ...
+Unpacking libaprutil1:amd64 (1.6.1-2) ...
+Selecting previously unselected package libaprutil1-dbd-sqlite3:amd64.
+Preparing to unpack .../2-libaprutil1-dbd-sqlite3_1.6.1-2_amd64.deb ...
+Unpacking libaprutil1-dbd-sqlite3:amd64 (1.6.1-2) ...
+Selecting previously unselected package libaprutil1-ldap:amd64.
+Preparing to unpack .../3-libaprutil1-ldap_1.6.1-2_amd64.deb ...
+Unpacking libaprutil1-ldap:amd64 (1.6.1-2) ...
+Selecting previously unselected package liblua5.2-0:amd64.
+Preparing to unpack .../4-liblua5.2-0_5.2.4-1.1build1_amd64.deb ...
+Unpacking liblua5.2-0:amd64 (5.2.4-1.1build1) ...
+Selecting previously unselected package apache2-bin.
+Preparing to unpack .../5-apache2-bin_2.4.29-1ubuntu4.25_amd64.deb ...
+Unpacking apache2-bin (2.4.29-1ubuntu4.25) ...
+Selecting previously unselected package apache2-utils.
+Preparing to unpack .../6-apache2-utils_2.4.29-1ubuntu4.25_amd64.deb ...
+Unpacking apache2-utils (2.4.29-1ubuntu4.25) ...
+Selecting previously unselected package apache2-data.
+Preparing to unpack .../7-apache2-data_2.4.29-1ubuntu4.25_all.deb ...
+Unpacking apache2-data (2.4.29-1ubuntu4.25) ...
+Selecting previously unselected package apache2.
+Preparing to unpack .../8-apache2_2.4.29-1ubuntu4.25_amd64.deb ...
+Unpacking apache2 (2.4.29-1ubuntu4.25) ...
+Selecting previously unselected package ssl-cert.
+Preparing to unpack .../9-ssl-cert_1.0.39_all.deb ...
+Unpacking ssl-cert (1.0.39) ...
+Setting up libapr1:amd64 (1.6.3-2) ...
+Setting up apache2-data (2.4.29-1ubuntu4.25) ...
+Setting up ssl-cert (1.0.39) ...
+Setting up libaprutil1:amd64 (1.6.1-2) ...
+Setting up liblua5.2-0:amd64 (5.2.4-1.1build1) ...
+Setting up libaprutil1-ldap:amd64 (1.6.1-2) ...
+Setting up libaprutil1-dbd-sqlite3:amd64 (1.6.1-2) ...
+Setting up apache2-utils (2.4.29-1ubuntu4.25) ...
+Setting up apache2-bin (2.4.29-1ubuntu4.25) ...
+Setting up apache2 (2.4.29-1ubuntu4.25) ...
+Enabling module mpm_event.
+Enabling module authz_core.
+Enabling module authz_host.
+Enabling module authn_core.
+Enabling module auth_basic.
+Enabling module access_compat.
+Enabling module authn_file.
+Enabling module authz_user.
+Enabling module alias.
+Enabling module dir.
+Enabling module autoindex.
+Enabling module env.
+Enabling module mime.
+Enabling module negotiation.
+Enabling module setenvif.
+Enabling module filter.
+Enabling module deflate.
+Enabling module status.
+Enabling module reqtimeout.
+Enabling conf charset.
+Enabling conf localized-error-pages.
+Enabling conf other-vhosts-access-log.
+Enabling conf security.
+Enabling conf serve-cgi-bin.
+Enabling site 000-default.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache2.service → /lib/systemd/system/apache2.service.
+Created symlink /etc/systemd/system/multi-user.target.wants/apache-htcacheclean.service → /lib/systemd/system/apache-htcacheclean.service.
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for systemd (237-3ubuntu10.53) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ufw (0.36-0ubuntu0.18.04.2) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+20220826 08:29:38 vpnpanel setup: INFO: Apache2 server installation completed successfully.
+20220826 08:29:38 vpnpanel setup: INFO: Install software properties.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+software-properties-common is already the newest version (0.96.24.32.18).
+software-properties-common set to manually installed.
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+20220826 08:29:39 vpnpanel setup: INFO: Software properties installation completed successfully.
+Hit:1 http://us.archive.ubuntu.com/ubuntu bionic InRelease
+Hit:2 http://us.archive.ubuntu.com/ubuntu bionic-updates InRelease
+Hit:3 http://us.archive.ubuntu.com/ubuntu bionic-backports InRelease
+Hit:4 http://us.archive.ubuntu.com/ubuntu bionic-security InRelease
+Reading package lists...
+20220826 08:29:41 vpnpanel setup: INFO: System updates completed successfully.
+20220826 08:29:41 vpnpanel setup: INFO: Install php stack.
+20220826 08:29:41 vpnpanel setup: INFO: php7.2 php7.2-mbstring git php7.2-mcrypt php7.2-mysql php7.2-xml unzip zip gzip tar php7.2-curl php7.2-gd php7.2-zip
+Reading package lists...
+Building dependency tree...
+Reading state information...
+git is already the newest version (1:2.17.1-1ubuntu0.12).
+git set to manually installed.
+gzip is already the newest version (1.6-5ubuntu1.2).
+tar is already the newest version (1.29b-2ubuntu0.3).
+tar set to manually installed.
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core libapache2-mod-php7.2 libfontconfig1
+  libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libsodium23 libtiff5 libwebp6
+  libxpm4 libzip4 php-common php7.2-cli php7.2-common php7.2-json
+  php7.2-opcache php7.2-readline
+Suggested packages:
+  php-pear libgd-tools
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core libapache2-mod-php7.2 libfontconfig1
+  libgd3 libjbig0 libjpeg-turbo8 libjpeg8 libsodium23 libtiff5 libwebp6
+  libxpm4 libzip4 php-common php7.2 php7.2-cli php7.2-common php7.2-curl
+  php7.2-gd php7.2-json php7.2-mbstring php7.2-mysql php7.2-opcache
+  php7.2-readline php7.2-xml php7.2-zip unzip zip
+0 upgraded, 28 newly installed, 0 to remove and 0 not upgraded.
+Need to get 7,034 kB of archives.
+After this operation, 27.9 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Get:1 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libjpeg-turbo8 amd64 1.5.2-0ubuntu5.18.04.4 [110 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 fonts-dejavu-core all 2.37-1 [1,041 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 fontconfig-config all 2.12.6-0ubuntu2 [55.8 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 php-common all 1:60ubuntu1 [12.1 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-common amd64 7.2.24-0ubuntu0.18.04.13 [890 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-json amd64 7.2.24-0ubuntu0.18.04.13 [18.9 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-opcache amd64 7.2.24-0ubuntu0.18.04.13 [165 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-readline amd64 7.2.24-0ubuntu0.18.04.13 [12.2 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libsodium23 amd64 1.0.16-2 [143 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-cli amd64 7.2.24-0ubuntu0.18.04.13 [1,409 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libapache2-mod-php7.2 amd64 7.2.24-0ubuntu0.18.04.13 [1,352 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libfontconfig1 amd64 2.12.6-0ubuntu2 [137 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libjpeg8 amd64 8c-2ubuntu8 [2,194 B]
+Get:14 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libjbig0 amd64 2.1-3.1build1 [26.7 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libtiff5 amd64 4.0.9-5ubuntu0.5 [153 kB]
+Get:16 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libwebp6 amd64 0.6.1-2ubuntu0.18.04.1 [186 kB]
+Get:17 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libxpm4 amd64 1:3.5.12-1 [34.0 kB]
+Get:18 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libgd3 amd64 2.2.5-4ubuntu0.5 [119 kB]
+Get:19 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 libzip4 amd64 1.1.2-1.1 [37.8 kB]
+Get:20 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2 all 7.2.24-0ubuntu0.18.04.13 [9,244 B]
+Get:21 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-curl amd64 7.2.24-0ubuntu0.18.04.13 [28.8 kB]
+Get:22 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-gd amd64 7.2.24-0ubuntu0.18.04.13 [27.2 kB]
+Get:23 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 php7.2-mbstring amd64 7.2.24-0ubuntu0.18.04.13 [483 kB]
+Get:24 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-mysql amd64 7.2.24-0ubuntu0.18.04.13 [117 kB]
+Get:25 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php7.2-xml amd64 7.2.24-0ubuntu0.18.04.13 [107 kB]
+Get:26 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 php7.2-zip amd64 7.2.24-0ubuntu0.18.04.13 [20.4 kB]
+Get:27 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 unzip amd64 6.0-21ubuntu1.1 [168 kB]
+Get:28 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 zip amd64 3.0-11build1 [167 kB]
+Fetched 7,034 kB in 1s (8,180 kB/s)
+Selecting previously unselected package libjpeg-turbo8:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 68686 files and directories currently installed.)
+Preparing to unpack .../00-libjpeg-turbo8_1.5.2-0ubuntu5.18.04.4_amd64.deb ...
+Unpacking libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.4) ...
+Selecting previously unselected package fonts-dejavu-core.
+Preparing to unpack .../01-fonts-dejavu-core_2.37-1_all.deb ...
+Unpacking fonts-dejavu-core (2.37-1) ...
+Selecting previously unselected package fontconfig-config.
+Preparing to unpack .../02-fontconfig-config_2.12.6-0ubuntu2_all.deb ...
+Unpacking fontconfig-config (2.12.6-0ubuntu2) ...
+Selecting previously unselected package php-common.
+Preparing to unpack .../03-php-common_1%3a60ubuntu1_all.deb ...
+Unpacking php-common (1:60ubuntu1) ...
+Selecting previously unselected package php7.2-common.
+Preparing to unpack .../04-php7.2-common_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-common (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-json.
+Preparing to unpack .../05-php7.2-json_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-json (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-opcache.
+Preparing to unpack .../06-php7.2-opcache_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-opcache (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-readline.
+Preparing to unpack .../07-php7.2-readline_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-readline (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package libsodium23:amd64.
+Preparing to unpack .../08-libsodium23_1.0.16-2_amd64.deb ...
+Unpacking libsodium23:amd64 (1.0.16-2) ...
+Selecting previously unselected package php7.2-cli.
+Preparing to unpack .../09-php7.2-cli_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-cli (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package libapache2-mod-php7.2.
+Preparing to unpack .../10-libapache2-mod-php7.2_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking libapache2-mod-php7.2 (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package libfontconfig1:amd64.
+Preparing to unpack .../11-libfontconfig1_2.12.6-0ubuntu2_amd64.deb ...
+Unpacking libfontconfig1:amd64 (2.12.6-0ubuntu2) ...
+Selecting previously unselected package libjpeg8:amd64.
+Preparing to unpack .../12-libjpeg8_8c-2ubuntu8_amd64.deb ...
+Unpacking libjpeg8:amd64 (8c-2ubuntu8) ...
+Selecting previously unselected package libjbig0:amd64.
+Preparing to unpack .../13-libjbig0_2.1-3.1build1_amd64.deb ...
+Unpacking libjbig0:amd64 (2.1-3.1build1) ...
+Selecting previously unselected package libtiff5:amd64.
+Preparing to unpack .../14-libtiff5_4.0.9-5ubuntu0.5_amd64.deb ...
+Unpacking libtiff5:amd64 (4.0.9-5ubuntu0.5) ...
+Selecting previously unselected package libwebp6:amd64.
+Preparing to unpack .../15-libwebp6_0.6.1-2ubuntu0.18.04.1_amd64.deb ...
+Unpacking libwebp6:amd64 (0.6.1-2ubuntu0.18.04.1) ...
+Selecting previously unselected package libxpm4:amd64.
+Preparing to unpack .../16-libxpm4_1%3a3.5.12-1_amd64.deb ...
+Unpacking libxpm4:amd64 (1:3.5.12-1) ...
+Selecting previously unselected package libgd3:amd64.
+Preparing to unpack .../17-libgd3_2.2.5-4ubuntu0.5_amd64.deb ...
+Unpacking libgd3:amd64 (2.2.5-4ubuntu0.5) ...
+Selecting previously unselected package libzip4:amd64.
+Preparing to unpack .../18-libzip4_1.1.2-1.1_amd64.deb ...
+Unpacking libzip4:amd64 (1.1.2-1.1) ...
+Selecting previously unselected package php7.2.
+Preparing to unpack .../19-php7.2_7.2.24-0ubuntu0.18.04.13_all.deb ...
+Unpacking php7.2 (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-curl.
+Preparing to unpack .../20-php7.2-curl_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-curl (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-gd.
+Preparing to unpack .../21-php7.2-gd_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-gd (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-mbstring.
+Preparing to unpack .../22-php7.2-mbstring_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-mbstring (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-mysql.
+Preparing to unpack .../23-php7.2-mysql_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-mysql (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-xml.
+Preparing to unpack .../24-php7.2-xml_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-xml (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package php7.2-zip.
+Preparing to unpack .../25-php7.2-zip_7.2.24-0ubuntu0.18.04.13_amd64.deb ...
+Unpacking php7.2-zip (7.2.24-0ubuntu0.18.04.13) ...
+Selecting previously unselected package unzip.
+Preparing to unpack .../26-unzip_6.0-21ubuntu1.1_amd64.deb ...
+Unpacking unzip (6.0-21ubuntu1.1) ...
+Selecting previously unselected package zip.
+Preparing to unpack .../27-zip_3.0-11build1_amd64.deb ...
+Unpacking zip (3.0-11build1) ...
+Setting up libjbig0:amd64 (2.1-3.1build1) ...
+Setting up fonts-dejavu-core (2.37-1) ...
+Setting up unzip (6.0-21ubuntu1.1) ...
+Setting up libjpeg-turbo8:amd64 (1.5.2-0ubuntu5.18.04.4) ...
+Setting up zip (3.0-11build1) ...
+Setting up libzip4:amd64 (1.1.2-1.1) ...
+Setting up libsodium23:amd64 (1.0.16-2) ...
+Setting up php-common (1:60ubuntu1) ...
+Created symlink /etc/systemd/system/timers.target.wants/phpsessionclean.timer → /lib/systemd/system/phpsessionclean.timer.
+Setting up libxpm4:amd64 (1:3.5.12-1) ...
+Setting up libwebp6:amd64 (0.6.1-2ubuntu0.18.04.1) ...
+Setting up libjpeg8:amd64 (8c-2ubuntu8) ...
+Setting up fontconfig-config (2.12.6-0ubuntu2) ...
+Setting up php7.2-common (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/calendar.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/ctype.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/exif.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/fileinfo.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/ftp.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/gettext.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/iconv.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/pdo.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/phar.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/posix.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/shmop.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/sockets.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/sysvmsg.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/sysvsem.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/sysvshm.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/tokenizer.ini with new version
+Setting up php7.2-curl (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/curl.ini with new version
+Setting up libtiff5:amd64 (4.0.9-5ubuntu0.5) ...
+Setting up php7.2-mbstring (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/mbstring.ini with new version
+Setting up php7.2-readline (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/readline.ini with new version
+Setting up php7.2-json (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/json.ini with new version
+Setting up php7.2-opcache (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/opcache.ini with new version
+Setting up php7.2-mysql (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/mysqlnd.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/mysqli.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/pdo_mysql.ini with new version
+Setting up libfontconfig1:amd64 (2.12.6-0ubuntu2) ...
+Setting up php7.2-xml (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/dom.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/simplexml.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/wddx.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/xml.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/xmlreader.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/xmlwriter.ini with new version
+
+Creating config file /etc/php/7.2/mods-available/xsl.ini with new version
+Setting up php7.2-zip (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/zip.ini with new version
+Setting up libgd3:amd64 (2.2.5-4ubuntu0.5) ...
+Setting up php7.2-cli (7.2.24-0ubuntu0.18.04.13) ...
+update-alternatives: using /usr/bin/php7.2 to provide /usr/bin/php (php) in auto mode
+update-alternatives: using /usr/bin/phar7.2 to provide /usr/bin/phar (phar) in auto mode
+update-alternatives: using /usr/bin/phar.phar7.2 to provide /usr/bin/phar.phar (phar.phar) in auto mode
+
+Creating config file /etc/php/7.2/cli/php.ini with new version
+Setting up libapache2-mod-php7.2 (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/apache2/php.ini with new version
+Module mpm_event disabled.
+Enabling module mpm_prefork.
+apache2_switch_mpm Switch to prefork
+apache2_invoke: Enable module php7.2
+Setting up php7.2-gd (7.2.24-0ubuntu0.18.04.13) ...
+
+Creating config file /etc/php/7.2/mods-available/gd.ini with new version
+Setting up php7.2 (7.2.24-0ubuntu0.18.04.13) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for mime-support (3.60ubuntu1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for libapache2-mod-php7.2 (7.2.24-0ubuntu0.18.04.13) ...
+20220826 08:30:26 vpnpanel setup: INFO: PHP stack installation completed successfully.
+20220826 08:30:26 vpnpanel setup: INFO: Disable specific modules php5.
+ERROR: Module php5 does not exist!
+20220826 08:30:26 vpnpanel setup: INFO: Module disabled successfully.
+20220826 08:30:26 vpnpanel setup: INFO: Disable specific modules php7.
+ERROR: Module php7 does not exist!
+20220826 08:30:26 vpnpanel setup: INFO: Module disabled successfully.
+20220826 08:30:26 vpnpanel setup: INFO: Enable module php7.2.
+Considering dependency mpm_prefork for php7.2:
+Considering conflict mpm_event for mpm_prefork:
+Considering conflict mpm_worker for mpm_prefork:
+Module mpm_prefork already enabled
+Considering conflict php5 for php7.2:
+Module php7.2 already enabled
+20220826 08:30:26 vpnpanel setup: INFO: Module enabled successfully.
+20220826 08:30:26 vpnpanel setup: INFO: Restart apache2 server.
+20220826 08:30:26 vpnpanel setup: INFO: Restarted apache2 server successfully.
+20220826 08:30:26 vpnpanel setup: INFO: Restart MySQL server.
+20220826 08:30:29 vpnpanel setup: INFO: Restarted MySQL server successfully.
+20220826 08:30:29 vpnpanel setup: INFO: Install send mail server.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  liblockfile-bin liblockfile1 lockfile-progs m4 make procmail sendmail-base
+  sendmail-bin sendmail-cf sensible-mda
+Suggested packages:
+  m4-doc make-doc sendmail-doc rmail logcheck resolvconf sasl2-bin
+The following NEW packages will be installed:
+  liblockfile-bin liblockfile1 lockfile-progs m4 make procmail sendmail
+  sendmail-base sendmail-bin sendmail-cf sensible-mda
+0 upgraded, 11 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1,250 kB of archives.
+After this operation, 5,185 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 m4 amd64 1.4.18-1 [197 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 make amd64 4.1-9.1ubuntu1 [154 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 liblockfile-bin amd64 1.14-1.1 [11.9 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 liblockfile1 amd64 1.14-1.1 [6,804 B]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 lockfile-progs amd64 0.1.17build1 [9,608 B]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 sendmail-base all 8.15.2-10 [137 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 sendmail-cf all 8.15.2-10 [84.5 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 sendmail-bin amd64 8.15.2-10 [495 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 procmail amd64 3.22-26 [140 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 sensible-mda amd64 8.15.2-10 [8,376 B]
+Get:11 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 sendmail all 8.15.2-10 [6,380 B]
+Fetched 1,250 kB in 0s (3,476 kB/s)
+Selecting previously unselected package m4.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 69088 files and directories currently installed.)
+Preparing to unpack .../00-m4_1.4.18-1_amd64.deb ...
+Unpacking m4 (1.4.18-1) ...
+Selecting previously unselected package make.
+Preparing to unpack .../01-make_4.1-9.1ubuntu1_amd64.deb ...
+Unpacking make (4.1-9.1ubuntu1) ...
+Selecting previously unselected package liblockfile-bin.
+Preparing to unpack .../02-liblockfile-bin_1.14-1.1_amd64.deb ...
+Unpacking liblockfile-bin (1.14-1.1) ...
+Selecting previously unselected package liblockfile1:amd64.
+Preparing to unpack .../03-liblockfile1_1.14-1.1_amd64.deb ...
+Unpacking liblockfile1:amd64 (1.14-1.1) ...
+Selecting previously unselected package lockfile-progs.
+Preparing to unpack .../04-lockfile-progs_0.1.17build1_amd64.deb ...
+Unpacking lockfile-progs (0.1.17build1) ...
+Selecting previously unselected package sendmail-base.
+Preparing to unpack .../05-sendmail-base_8.15.2-10_all.deb ...
+Unpacking sendmail-base (8.15.2-10) ...
+Selecting previously unselected package sendmail-cf.
+Preparing to unpack .../06-sendmail-cf_8.15.2-10_all.deb ...
+Unpacking sendmail-cf (8.15.2-10) ...
+Selecting previously unselected package sendmail-bin.
+Preparing to unpack .../07-sendmail-bin_8.15.2-10_amd64.deb ...
+Unpacking sendmail-bin (8.15.2-10) ...
+Selecting previously unselected package procmail.
+Preparing to unpack .../08-procmail_3.22-26_amd64.deb ...
+Unpacking procmail (3.22-26) ...
+Selecting previously unselected package sensible-mda.
+Preparing to unpack .../09-sensible-mda_8.15.2-10_amd64.deb ...
+Unpacking sensible-mda (8.15.2-10) ...
+Selecting previously unselected package sendmail.
+Preparing to unpack .../10-sendmail_8.15.2-10_all.deb ...
+Unpacking sendmail (8.15.2-10) ...
+Setting up procmail (3.22-26) ...
+Setting up liblockfile-bin (1.14-1.1) ...
+Setting up make (4.1-9.1ubuntu1) ...
+Setting up liblockfile1:amd64 (1.14-1.1) ...
+Setting up m4 (1.4.18-1) ...
+Setting up sendmail-cf (8.15.2-10) ...
+Setting up lockfile-progs (0.1.17build1) ...
+Setting up sendmail-base (8.15.2-10) ...
+adduser: Warning: The home directory `/var/lib/sendmail' does not belong to the user you are currently creating.
+Setting up sendmail-bin (8.15.2-10) ...
+update-alternatives: using /usr/lib/sm.bin/sendmail to provide /usr/sbin/sendmail-mta (sendmail-mta) in auto mode
+update-alternatives: using /usr/lib/sm.bin/sendmail to provide /usr/sbin/sendmail-msp (sendmail-msp) in auto mode
+
+You are doing a new install, or have erased /etc/mail/sendmail.mc.
+If you've accidentaly erased /etc/mail/sendmail.mc, check /var/backups.
+
+I am creating a safe, default sendmail.mc for you and you can
+run sendmailconfig later if you need to change the defaults.
+
+Updating sendmail environment ...
+Validating configuration.
+Writing configuration to /etc/mail/sendmail.conf.
+Writing /etc/cron.d/sendmail.
+Could not open /etc/mail/databases(No such file or directory), creating it.
+Could not open /etc/mail/sendmail.mc(No such file or directory)
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Writing configuration to /etc/mail/sendmail.conf.
+Writing /etc/cron.d/sendmail.
+Turning off Host Status collection
+Could not open /etc/mail/databases(No such file or directory), creating it.
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Creating /etc/mail/databases...
+
+Checking filesystem, this may take some time - it will not hang!
+  ...   Done.
+ 
+Checking for installed MDAs...
+Adding link for newly extant program (mail.local)
+Adding link for newly extant program (procmail)
+sasl2-bin not installed, not configuring sendmail support.
+
+To enable sendmail SASL2 support at a later date, invoke "/usr/share/sendmail/update_auth"
+
+ 
+Creating/Updating SSL(for TLS) information
+Creating /etc/mail/tls/starttls.m4...
+Creating SSL certificates for sendmail.
+Generating DSA parameters, 2048 bit long prime
+This could take some time
+..........+.................+.......+.......................+........+.........................+..........+..+................+...................+............+.......+....+..............+...............+....+..+................+.......+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*
+...+....+......+.+.....................+................................+........+...........+...+..............+.....+..........+..+.....+...+........+...+.......+................+.+....+.....+.+.+..+.......+.........+.+..+.....+...+....+....................+.............+.......+...................+.....+....+.........+......+........................+..............+........+.......+..........+.+...................+.....+......+....+.....+.....................+................+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*
+Generating RSA private key, 2048 bit long modulus (2 primes)
+...............................................................................................................................................+++++
+.+++++
+e is 65537 (0x010001)
+
+*** *** *** WARNING *** WARNING *** WARNING *** WARNING *** *** ***
+
+Everything you need to support STARTTLS (encrypted mail transmission
+and user authentication via certificates) is installed and configured
+but is *NOT* being used.
+
+To enable sendmail to use STARTTLS, you need to:
+1) Add this line to /etc/mail/sendmail.mc and optionally
+   to /etc/mail/submit.mc:
+  include(`/etc/mail/tls/starttls.m4')dnl
+2) Run sendmailconfig
+3) Restart sendmail
+
+
+Updating /etc/hosts.allow, adding "sendmail: all".
+
+Please edit /etc/hosts.allow and check the rules location to
+make sure your security measures have not been overridden -
+it is common to move the sendmail:all line to the *end* of
+the file, so your more selective rules take precedence.
+Checking {sendmail,submit}.mc and related databases...
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Creating /etc/mail/databases...
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Creating /etc/mail/databases...
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Creating /etc/mail/Makefile...
+Reading configuration from /etc/mail/sendmail.conf.
+Validating configuration.
+Writing configuration to /etc/mail/sendmail.conf.
+Writing /etc/cron.d/sendmail.
+Disabling HOST statistics file(/var/lib/sendmail/host_status).
+Creating /etc/mail/sendmail.cf...
+Creating /etc/mail/submit.cf...
+Informational: confCR_FILE file empty: /etc/mail/relay-domains
+Warning: confCT_FILE source file not found: /etc/mail/trusted-users
+ it was created
+Informational: confCT_FILE file empty: /etc/mail/trusted-users
+Warning: confCW_FILE source file not found: /etc/mail/local-host-names
+ it was created
+Warning: access_db source file not found: /etc/mail/access
+ it was created
+Updating /etc/mail/access...
+Linking /etc/aliases to /etc/mail/aliases
+Informational: ALIAS_FILE file empty: /etc/mail/aliases
+Updating /etc/mail/aliases...
+WARNING: local host name (toproadstudio) is not qualified; see cf/README: WHO AM I?
+/etc/mail/aliases: 0 aliases, longest 0 bytes, 0 bytes total
+ 
+Warning: 3 database(s) sources
+	were not found, (but were created)
+	please investigate.
+Setting up sensible-mda (8.15.2-10) ...
+Setting up sendmail (8.15.2-10) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+Processing triggers for install-info (6.5.0.dfsg.1-2) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for systemd (237-3ubuntu10.53) ...
+20220826 08:32:48 vpnpanel setup: INFO: Installation completed successfully.
+20220826 08:32:48 vpnpanel setup: INFO: Install php mail server.
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  php-auth-sasl php-net-smtp php-net-socket php-pear
+The following NEW packages will be installed:
+  php-auth-sasl php-mail php-net-smtp php-net-socket php-pear
+0 upgraded, 5 newly installed, 0 to remove and 0 not upgraded.
+Need to get 350 kB of archives.
+After this operation, 2,443 kB of additional disk space will be used.
+Get:1 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 php-pear all 1:1.10.5+submodules+notgz-1ubuntu1.18.04.4 [284 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 php-auth-sasl all 1.0.6-3 [12.8 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 php-mail all 1.3.0-1 [24.3 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 php-net-socket all 1.0.14-2 [10.2 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic/universe amd64 php-net-smtp all 1.8.0-1 [18.6 kB]
+Fetched 350 kB in 0s (1,262 kB/s)
+Selecting previously unselected package php-pear.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 69667 files and directories currently installed.)
+Preparing to unpack .../php-pear_1%3a1.10.5+submodules+notgz-1ubuntu1.18.04.4_all.deb ...
+Unpacking php-pear (1:1.10.5+submodules+notgz-1ubuntu1.18.04.4) ...
+Selecting previously unselected package php-auth-sasl.
+Preparing to unpack .../php-auth-sasl_1.0.6-3_all.deb ...
+Unpacking php-auth-sasl (1.0.6-3) ...
+Selecting previously unselected package php-mail.
+Preparing to unpack .../php-mail_1.3.0-1_all.deb ...
+Unpacking php-mail (1.3.0-1) ...
+Selecting previously unselected package php-net-socket.
+Preparing to unpack .../php-net-socket_1.0.14-2_all.deb ...
+Unpacking php-net-socket (1.0.14-2) ...
+Selecting previously unselected package php-net-smtp.
+Preparing to unpack .../php-net-smtp_1.8.0-1_all.deb ...
+Unpacking php-net-smtp (1.8.0-1) ...
+Setting up php-net-socket (1.0.14-2) ...
+Setting up php-mail (1.3.0-1) ...
+Setting up php-pear (1:1.10.5+submodules+notgz-1ubuntu1.18.04.4) ...
+Setting up php-auth-sasl (1.0.6-3) ...
+Setting up php-net-smtp (1.8.0-1) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+20220826 08:32:53 vpnpanel setup: INFO: Installation completed successfully.
+20220826 08:32:53 vpnpanel setup: INFO: All packages installed successfully.
+20220826 08:32:53 vpnpanel setup: INFO: starting clone repo smarterspanel-org
+20220826 08:32:53 vpnpanel setup: INFO: checking git status 
+/usr/bin/git
+20220826 08:32:53 vpnpanel setup: INFO: git running on server 
+20220826 08:32:53 vpnpanel setup: INFO: cloning repo smarterspanel-org 
+Cloning into 'smarterspanel-org'...
+Checking out files:  25% (3820/14808)   Checking out files:  26% (3851/14808)   Checking out files:  27% (3999/14808)   Checking out files:  28% (4147/14808)   Checking out files:  29% (4295/14808)   Checking out files:  30% (4443/14808)   Checking out files:  31% (4591/14808)   Checking out files:  32% (4739/14808)   Checking out files:  33% (4887/14808)   Checking out files:  34% (5035/14808)   Checking out files:  35% (5183/14808)   Checking out files:  36% (5331/14808)   Checking out files:  37% (5479/14808)   Checking out files:  38% (5628/14808)   Checking out files:  39% (5776/14808)   Checking out files:  40% (5924/14808)   Checking out files:  41% (6072/14808)   Checking out files:  42% (6220/14808)   Checking out files:  43% (6368/14808)   Checking out files:  44% (6516/14808)   Checking out files:  45% (6664/14808)   Checking out files:  46% (6812/14808)   Checking out files:  47% (6960/14808)   Checking out files:  48% (7108/14808)   Checking out files:  49% (7256/14808)   Checking out files:  50% (7404/14808)   Checking out files:  51% (7553/14808)   Checking out files:  52% (7701/14808)   Checking out files:  53% (7849/14808)   Checking out files:  54% (7997/14808)   Checking out files:  55% (8145/14808)   Checking out files:  56% (8293/14808)   Checking out files:  57% (8441/14808)   Checking out files:  58% (8589/14808)   Checking out files:  59% (8737/14808)   Checking out files:  60% (8885/14808)   Checking out files:  61% (9033/14808)   Checking out files:  62% (9181/14808)   Checking out files:  63% (9330/14808)   Checking out files:  64% (9478/14808)   Checking out files:  65% (9626/14808)   Checking out files:  66% (9774/14808)   Checking out files:  67% (9922/14808)   Checking out files:  68% (10070/14808)   Checking out files:  69% (10218/14808)   Checking out files:  70% (10366/14808)   Checking out files:  71% (10514/14808)   Checking out files:  72% (10662/14808)   Checking out files:  73% (10810/14808)   Checking out files:  74% (10958/14808)   Checking out files:  75% (11106/14808)   Checking out files:  76% (11255/14808)   Checking out files:  77% (11403/14808)   Checking out files:  78% (11551/14808)   Checking out files:  79% (11699/14808)   Checking out files:  80% (11847/14808)   Checking out files:  81% (11995/14808)   Checking out files:  82% (12143/14808)   Checking out files:  83% (12291/14808)   Checking out files:  84% (12439/14808)   Checking out files:  85% (12587/14808)   Checking out files:  86% (12735/14808)   Checking out files:  87% (12883/14808)   Checking out files:  88% (13032/14808)   Checking out files:  89% (13180/14808)   Checking out files:  89% (13280/14808)   Checking out files:  90% (13328/14808)   Checking out files:  91% (13476/14808)   Checking out files:  92% (13624/14808)   Checking out files:  93% (13772/14808)   Checking out files:  94% (13920/14808)   Checking out files:  95% (14068/14808)   Checking out files:  96% (14216/14808)   Checking out files:  97% (14364/14808)   Checking out files:  98% (14512/14808)   Checking out files:  99% (14660/14808)   Checking out files: 100% (14808/14808)   Checking out files: 100% (14808/14808), done.
+20220826 08:33:14 vpnpanel setup: INFO: cloning of  repo smarterspanel-org has been completed 
+20220826 08:33:14 vpnpanel setup: INFO: creating directory /var/www/html/billing/
+20220826 08:33:14 vpnpanel setup: INFO: directory /var/www/html/billing/ has been successfully created
+20220826 08:33:14 vpnpanel setup: INFO: copying smarterspanel new data files to /var/www/html/billing/
+20220826 08:33:14 vpnpanel setup: INFO: smarterspanel new data files has been copied to /var/www/html/billing/
+20220826 08:33:14 vpnpanel setup: INFO: remove empty cloned repo smarterspanel-org
+20220826 08:33:14 vpnpanel setup: INFO: empty repo has been removed
+20220826 08:33:14 vpnpanel setup: INFO: repo smarterspanel-org has been cloned succesfully
+20220826 08:33:14 vpnpanel setup: INFO: copying ioncube loader to /usr/lib/php/20170718
+20220826 08:33:14 vpnpanel setup: INFO: ioncube loader has been copied to /usr/lib/php/20170718
+20220826 08:33:14 vpnpanel setup: INFO: adding zend extension directory to /etc/php/7.2/apache2/php.ini
+20220826 08:33:14 vpnpanel setup: INFO: added zend extension directory to /etc/php/7.2/apache2/php.ini
+20220826 08:33:14 vpnpanel setup: INFO: adding zend extension directory to /etc/php/7.2/cli/php.ini
+20220826 08:33:14 vpnpanel setup: INFO: added zend extension directory to /etc/php/7.2/cli/php.ini
+20220826 08:33:14 vpnpanel setup: INFO: zend and ioncube installation has been completed successfully
+20220826 08:33:14 vpnpanel setup: INFO: restarting apache2 server
+20220826 08:33:14 vpnpanel setup: INFO: apache2 server has been successfully restarted.
+20220826 08:33:14 vpnpanel setup: INFO: setting cron for panel automation
+20220826 08:33:14 vpnpanel setup: INFO: cronjob has been added for panel automation
+20220826 08:33:14 vpnpanel setup: INFO: creating mysql database
+20220826 08:33:14 vpnpanel setup: INFO: mysql database vpn_smarters_billing_7SXkbodu has been created
+20220826 08:33:14 vpnpanel setup: INFO: import data into database vpn_smarters_billing_7SXkbodu
+20220826 08:35:54 vpnpanel setup: INFO: data has been successfully imported into database vpn_smarters_billing_7SXkbodu
+20220826 08:35:54 vpnpanel setup: INFO: creating mysql username and password for application
+20220826 08:35:54 vpnpanel setup: INFO: mysql user has been created
+20220826 08:35:54 vpnpanel setup: INFO: grant privileges to mysql user
+20220826 08:35:54 vpnpanel setup: INFO: privileges have been granted to mysql user
+20220826 08:35:54 vpnpanel setup: INFO: create control file for upgrade
+20220826 08:35:54 vpnpanel setup: INFO: control file upgrade.txt has been created for upgrade
+20220826 08:35:54 vpnpanel setup: INFO: creating ~/.my.cnf configuration file 
+20220826 08:35:54 vpnpanel setup: INFO: ~/.my.cnf configuration file has been created 
+20220826 08:35:54 vpnpanel setup: INFO: updating configuration file /var/www/html/billing//configuration.php
+20220826 08:35:54 vpnpanel setup: INFO: updating configuration file /var/www/html/billing//configuration.php 
+20220826 08:35:54 vpnpanel setup: INFO: configuration file /var/www/html/billing//configuration.php updated 
+20220826 08:35:54 vpnpanel setup: INFO: update domain in table tblconfiguration
+20220826 08:35:54 vpnpanel setup: INFO: domain has been updated in table tblconfiguration
+20220826 08:35:54 vpnpanel setup: INFO: update domain in table tblconfiguration
+20220826 08:35:54 vpnpanel setup: INFO: domain has been updated in table tblconfiguration
+20220826 08:35:54 vpnpanel setup: INFO: update license in table tbladdonmodules
+20220826 08:35:54 vpnpanel setup: INFO: license has been updated in table tbladdonmodules
+20220826 08:35:54 vpnpanel setup: INFO: update localkey in table tbladdonmodules
+20220826 08:35:54 vpnpanel setup: INFO: localkey has been updated in table tbladdonmodules
+20220826 08:35:54 vpnpanel setup: INFO: update table server_list
+20220826 08:35:54 vpnpanel setup: INFO: table server_list has been updated
+20220826 08:35:54 vpnpanel setup: INFO: delete public ip from table server_list
+20220826 08:35:54 vpnpanel setup: INFO: public ip has been deleted from table server_list
+20220826 08:35:54 vpnpanel setup: INFO: add/update server details to table server_list
+20220826 08:35:54 vpnpanel setup: INFO: server details has been added/updated to table server_list
+20220826 08:35:54 vpnpanel setup: INFO: removing file created by function
+20220826 08:35:54 vpnpanel setup: INFO: files createdfrom function has been removed
+20220826 08:35:54 vpnpanel setup: INFO: updating file configuration.php permission 
+20220826 08:35:54 vpnpanel setup: INFO: changed file configuration.php permission 
+20220826 08:35:54 vpnpanel setup: INFO: updating directory templates_c permission 
+20220826 08:35:54 vpnpanel setup: INFO: updated directory templates_c permission 
+20220826 08:35:54 vpnpanel setup: INFO: updating directory admin/templates_c permission 
+20220826 08:35:54 vpnpanel setup: INFO: updated directory admin/templates_c permission 
+20220826 08:35:54 vpnpanel setup: INFO: updating directory downloads permission 
+20220826 08:35:54 vpnpanel setup: INFO: updating directory attachments permission 
+20220826 08:35:54 vpnpanel setup: INFO: updated directory attachments permission 
+20220826 08:35:54 vpnpanel setup: INFO: starting process to install freeradius 
+20220826 08:35:54 vpnpanel setup: INFO: checking if freeradius installed 
+Failed to restart freeradius.service: Unit freeradius.service not found.
+20220826 08:35:54 vpnpanel setup: INFO: uninstall freeradius 
+20220826 08:35:54 vpnpanel setup: INFO: stopping freeradius 
+Failed to stop freeradius.service: Unit freeradius.service not loaded.
+20220826 08:35:55 vpnpanel setup: INFO: freeradius has been stopped 
+20220826 08:35:55 vpnpanel setup: INFO: purging freeradius packages 
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Package 'freeradius' is not installed, so not removed
+Package 'freeradius-common' is not installed, so not removed
+Package 'freeradius-utils' is not installed, so not removed
+Package 'freeradius-mysql' is not installed, so not removed
+0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+20220826 08:36:00 vpnpanel setup: INFO: freeradius packages has been purged 
+20220826 08:36:00 vpnpanel setup: INFO: freeradius uninstalled 
+20220826 08:36:00 vpnpanel setup: INFO: installing freeradius 
+20220826 08:36:00 vpnpanel setup: INFO: installing freeradius packages 
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  freeradius-config freetds-common libct4 libdbi-perl libfreeradius3
+  libmysqlclient20 libpython2.7 libpython2.7-minimal libpython2.7-stdlib
+  libtalloc2 libwbclient0
+Suggested packages:
+  freeradius-ldap freeradius-postgresql freeradius-krb5 snmp libclone-perl
+  libmldbm-perl libnet-daemon-perl libsql-statement-perl
+The following NEW packages will be installed:
+  freeradius freeradius-common freeradius-config freeradius-mysql
+  freeradius-utils freetds-common libct4 libdbi-perl libfreeradius3
+  libmysqlclient20 libpython2.7 libpython2.7-minimal libpython2.7-stdlib
+  libtalloc2 libwbclient0
+0 upgraded, 15 newly installed, 0 to remove and 0 not upgraded.
+Need to get 6,144 kB of archives.
+After this operation, 27.4 MB of additional disk space will be used.
+Do you want to continue? [Y/n] Get:1 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libwbclient0 amd64 2:4.7.6+dfsg~ubuntu-0ubuntu2.28 [33.6 kB]
+Get:2 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 freetds-common all 1.00.82-2ubuntu0.1 [24.7 kB]
+Get:3 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libct4 amd64 1.00.82-2ubuntu0.1 [147 kB]
+Get:4 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-minimal amd64 2.7.17-1~18.04ubuntu1.8 [336 kB]
+Get:5 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7-stdlib amd64 2.7.17-1~18.04ubuntu1.8 [1,916 kB]
+Get:6 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libpython2.7 amd64 2.7.17-1~18.04ubuntu1.8 [1,054 kB]
+Get:7 http://us.archive.ubuntu.com/ubuntu bionic/main amd64 libtalloc2 amd64 2.1.10-2ubuntu1 [36.0 kB]
+Get:8 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 freeradius-common all 3.0.16+dfsg-1ubuntu3.1 [214 kB]
+Get:9 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 freeradius-config amd64 3.0.16+dfsg-1ubuntu3.1 [150 kB]
+Get:10 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libfreeradius3 amd64 3.0.16+dfsg-1ubuntu3.1 [180 kB]
+Get:11 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 freeradius amd64 3.0.16+dfsg-1ubuntu3.1 [502 kB]
+Get:12 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libmysqlclient20 amd64 5.7.39-0ubuntu0.18.04.2 [728 kB]
+Get:13 http://us.archive.ubuntu.com/ubuntu bionic-updates/universe amd64 freeradius-mysql amd64 3.0.16+dfsg-1ubuntu3.1 [10.1 kB]
+Get:14 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 freeradius-utils amd64 3.0.16+dfsg-1ubuntu3.1 [88.3 kB]
+Get:15 http://us.archive.ubuntu.com/ubuntu bionic-updates/main amd64 libdbi-perl amd64 1.640-1ubuntu0.3 [724 kB]
+Fetched 6,144 kB in 1s (7,157 kB/s)
+Selecting previously unselected package libwbclient0:amd64.
+(Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 69896 files and directories currently installed.)
+Preparing to unpack .../00-libwbclient0_2%3a4.7.6+dfsg~ubuntu-0ubuntu2.28_amd64.deb ...
+Unpacking libwbclient0:amd64 (2:4.7.6+dfsg~ubuntu-0ubuntu2.28) ...
+Selecting previously unselected package freetds-common.
+Preparing to unpack .../01-freetds-common_1.00.82-2ubuntu0.1_all.deb ...
+Unpacking freetds-common (1.00.82-2ubuntu0.1) ...
+Selecting previously unselected package libct4:amd64.
+Preparing to unpack .../02-libct4_1.00.82-2ubuntu0.1_amd64.deb ...
+Unpacking libct4:amd64 (1.00.82-2ubuntu0.1) ...
+Selecting previously unselected package libpython2.7-minimal:amd64.
+Preparing to unpack .../03-libpython2.7-minimal_2.7.17-1~18.04ubuntu1.8_amd64.deb ...
+Unpacking libpython2.7-minimal:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Selecting previously unselected package libpython2.7-stdlib:amd64.
+Preparing to unpack .../04-libpython2.7-stdlib_2.7.17-1~18.04ubuntu1.8_amd64.deb ...
+Unpacking libpython2.7-stdlib:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Selecting previously unselected package libpython2.7:amd64.
+Preparing to unpack .../05-libpython2.7_2.7.17-1~18.04ubuntu1.8_amd64.deb ...
+Unpacking libpython2.7:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Selecting previously unselected package libtalloc2:amd64.
+Preparing to unpack .../06-libtalloc2_2.1.10-2ubuntu1_amd64.deb ...
+Unpacking libtalloc2:amd64 (2.1.10-2ubuntu1) ...
+Selecting previously unselected package freeradius-common.
+Preparing to unpack .../07-freeradius-common_3.0.16+dfsg-1ubuntu3.1_all.deb ...
+Unpacking freeradius-common (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package freeradius-config.
+Preparing to unpack .../08-freeradius-config_3.0.16+dfsg-1ubuntu3.1_amd64.deb ...
+Unpacking freeradius-config (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package libfreeradius3.
+Preparing to unpack .../09-libfreeradius3_3.0.16+dfsg-1ubuntu3.1_amd64.deb ...
+Unpacking libfreeradius3 (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package freeradius.
+Preparing to unpack .../10-freeradius_3.0.16+dfsg-1ubuntu3.1_amd64.deb ...
+Unpacking freeradius (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package libmysqlclient20:amd64.
+Preparing to unpack .../11-libmysqlclient20_5.7.39-0ubuntu0.18.04.2_amd64.deb ...
+Unpacking libmysqlclient20:amd64 (5.7.39-0ubuntu0.18.04.2) ...
+Selecting previously unselected package freeradius-mysql.
+Preparing to unpack .../12-freeradius-mysql_3.0.16+dfsg-1ubuntu3.1_amd64.deb ...
+Unpacking freeradius-mysql (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package freeradius-utils.
+Preparing to unpack .../13-freeradius-utils_3.0.16+dfsg-1ubuntu3.1_amd64.deb ...
+Unpacking freeradius-utils (3.0.16+dfsg-1ubuntu3.1) ...
+Selecting previously unselected package libdbi-perl.
+Preparing to unpack .../14-libdbi-perl_1.640-1ubuntu0.3_amd64.deb ...
+Unpacking libdbi-perl (1.640-1ubuntu0.3) ...
+Setting up libwbclient0:amd64 (2:4.7.6+dfsg~ubuntu-0ubuntu2.28) ...
+Setting up freeradius-common (3.0.16+dfsg-1ubuntu3.1) ...
+Adding user freerad to group shadow
+Setting up freetds-common (1.00.82-2ubuntu0.1) ...
+Setting up freeradius-config (3.0.16+dfsg-1ubuntu3.1) ...
+Adding user freerad to group ssl-cert
+Generating DH parameters, 1024 bit long safe prime, generator 2
+This is going to take a long time
+.....................................+...........................................................+.......................................+.+.....................+.............+.....+.......................+.......................................+..............................................................................+.............................+.............+.....+...............................+...............+.........................+.............................................................................+......................+..+..............................+..........................+...............................................................+...................................+..................+...................+..........................+................................................................................+...........+.......+...............................................................................+.........................+.....................................................................................+.....+..................................................................................................+...........................................................................................................................................................................+.................................................+.............+...+...................................................................+..........................+....................................+..........+........+..........................................................................................+....................+....+..........+...............................................................................................................................+............................................+.............................................................................+......+.............+...................+...........................................+...........................................................+.............................+.......................................+............+...................................................+............................................+................+................+................................................................................................................................................+........+..............................................................+.............................+......................................................................................................+............................................................................................................+...............+.....................................+..............+...........+..............................................................................+.......+........................................................+...................................................................+.............+..................+................+...............................................................................+...........................................................................+.........................................................................................................................................................................+.......................++*++*++*++*++*
+Setting up libtalloc2:amd64 (2.1.10-2ubuntu1) ...
+Setting up libmysqlclient20:amd64 (5.7.39-0ubuntu0.18.04.2) ...
+Setting up libpython2.7-minimal:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Setting up libdbi-perl (1.640-1ubuntu0.3) ...
+Setting up libpython2.7-stdlib:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Setting up libct4:amd64 (1.00.82-2ubuntu0.1) ...
+Setting up libfreeradius3 (3.0.16+dfsg-1ubuntu3.1) ...
+Setting up libpython2.7:amd64 (2.7.17-1~18.04ubuntu1.8) ...
+Setting up freeradius-utils (3.0.16+dfsg-1ubuntu3.1) ...
+Setting up freeradius (3.0.16+dfsg-1ubuntu3.1) ...
+update-rc.d: warning: start and stop actions are no longer supported; falling back to defaults
+Setting up freeradius-mysql (3.0.16+dfsg-1ubuntu3.1) ...
+Processing triggers for libc-bin (2.27-3ubuntu1.6) ...
+Processing triggers for systemd (237-3ubuntu10.53) ...
+Processing triggers for man-db (2.8.3-2ubuntu0.1) ...
+Processing triggers for ureadahead (0.100.0-21) ...
+20220826 08:36:31 vpnpanel setup: INFO: freeradius packages have been installed successfully
+20220826 08:36:31 vpnpanel setup: INFO: restarting freeradius 
+20220826 08:36:31 vpnpanel setup: INFO: freeradius has been restarted 
+20220826 08:36:31 vpnpanel setup: INFO: freeradius has been installed successfully 
+20220826 08:36:31 vpnpanel setup: INFO: stoping freeradius 
+20220826 08:36:31 vpnpanel setup: INFO: freeradius has been stopped 
+20220826 08:36:31 vpnpanel setup: INFO: creating freeradius sql configuration file 
+20220826 08:36:31 vpnpanel setup: INFO: freeradius sql configuration file has been created 
+20220826 08:36:31 vpnpanel setup: INFO: changing group of sql configuration file 
+20220826 08:36:31 vpnpanel setup: INFO: sql configuration file group has been changed 
+20220826 08:36:31 vpnpanel setup: INFO: changing owner of sql configuration file 
+20220826 08:36:32 vpnpanel setup: INFO: sql configuration file onwers have been changed 
+20220826 08:36:32 vpnpanel setup: INFO: starting process to enable freeradius default site 
+20220826 08:36:32 vpnpanel setup: INFO: creating archive directory for default configurations 
+20220826 08:36:32 vpnpanel setup: INFO: archive directory has been created 
+20220826 08:36:32 vpnpanel setup: INFO: taking backup of old default configuration 
+20220826 08:36:32 vpnpanel setup: INFO: backup has been completed 
+20220826 08:36:32 vpnpanel setup: INFO: removing old default configuration 
+20220826 08:36:32 vpnpanel setup: INFO: removed old default configuration 
+20220826 08:36:32 vpnpanel setup: INFO: copy the new default configuration 
+20220826 08:36:32 vpnpanel setup: INFO: new default configuration has been copied to respective location 
+20220826 08:36:32 vpnpanel setup: INFO: change group of configuration file 
+20220826 08:36:32 vpnpanel setup: INFO: configuration file group has been changed
+20220826 08:36:32 vpnpanel setup: INFO: change owner of configuration file 
+20220826 08:36:32 vpnpanel setup: INFO: configuration file owner have been changed
+20220826 08:36:32 vpnpanel setup: INFO: freeradius has been installed successfully
+20220826 08:36:32 vpnpanel setup: INFO: restarting freeradius service 
+20220826 08:36:32 vpnpanel setup: INFO: freeradius service has been restarted successfully 
+20220826 08:36:32 vpnpanel setup: INFO: vpnpanel return status information
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100    64    0     0  100    64      0     47  0:00:01  0:00:01 --:--:--    47100    64    0     0  100    64      0     27  0:00:02  0:00:02 --:--:--    27<!DOCTYPE html>
+<!--[if IE 6]>
+<html id="ie6" lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<![endif]-->
+<!--[if IE 7]>
+<html id="ie7" lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<![endif]-->
+<!--[if IE 8]>
+<html id="ie8" lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<![endif]-->
+<!--[if !(IE 6) | !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en-US"
+	prefix="og: https://ogp.me/ns#" >
+<!--<![endif]-->
+<head>
+	<meta charset="UTF-8" />
+			
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="pingback" href="https://www.whmcssmarters.com/xmlrpc.php" />
+
+		<!--[if lt IE 9]>
+	<script src="https://www.whmcssmarters.com/wp-content/themes/Whmcssmarters/scripts/ext/html5.js" type="text/javascript"></script>
+	<![endif]-->
+
+	<script type="text/javascript">
+		document.documentElement.className = 'js';
+	</script>
+
+	<title>404 Not Found | WHMCSSmarters</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<!-- All in One SEO 4.1.5.3 -->
+		<meta name="robots" content="noindex" />
+		<meta name="msvalidate.01" content="955426E601264DBF86E43D1A66770305" />
+		<meta name="p:domain_verify" content="ecf8748c3bd388eee2eca1643e4122f7" />
+		<link rel="canonical" href="https://www.whmcssmarters.com/clients/panel_installation_status.php/" />
+		<script type="application/ld+json" class="aioseo-schema">
+			{"@context":"https:\/\/schema.org","@graph":[{"@type":"WebSite","@id":"https:\/\/www.whmcssmarters.com\/#website","url":"https:\/\/www.whmcssmarters.com\/","name":"WHMCSSmarters","description":"WHMCS Modules | OTT Softwares | VPN Softwares Solutions","inLanguage":"en-US","publisher":{"@id":"https:\/\/www.whmcssmarters.com\/#organization"}},{"@type":"Organization","@id":"https:\/\/www.whmcssmarters.com\/#organization","name":"WHMCS Smarters","url":"https:\/\/www.whmcssmarters.com\/"},{"@type":"BreadcrumbList","@id":"https:\/\/www.whmcssmarters.com\/clients\/panel_installation_status.php\/#breadcrumblist","itemListElement":[{"@type":"ListItem","@id":"https:\/\/www.whmcssmarters.com\/#listItem","position":1,"item":{"@type":"WebPage","@id":"https:\/\/www.whmcssmarters.com\/","name":"Home","description":"Software solutions for OTT | VPN Business and customized services for WHMCS including OTT & VPN Billing Solutions, OTT & VPN Apps, OTT & VPN Website Development","url":"https:\/\/www.whmcssmarters.com\/"},"nextItem":"https:\/\/www.whmcssmarters.com\/clients\/panel_installation_status.php\/#listItem"},{"@type":"ListItem","@id":"https:\/\/www.whmcssmarters.com\/clients\/panel_installation_status.php\/#listItem","position":2,"item":{"@type":"WebPage","@id":"https:\/\/www.whmcssmarters.com\/clients\/panel_installation_status.php\/","name":"Not Found","url":"https:\/\/www.whmcssmarters.com\/clients\/panel_installation_status.php\/"},"previousItem":"https:\/\/www.whmcssmarters.com\/#listItem"}]}]}
+		</script>
+		<!-- All in One SEO -->
+
+<script type="text/javascript">
+			let jqueryParams=[],jQuery=function(r){return jqueryParams=[...jqueryParams,r],jQuery},$=function(r){return jqueryParams=[...jqueryParams,r],$};window.jQuery=jQuery,window.$=jQuery;let customHeadScripts=!1;jQuery.fn=jQuery.prototype={},$.fn=jQuery.prototype={},jQuery.noConflict=function(r){if(window.jQuery)return jQuery=window.jQuery,$=window.jQuery,customHeadScripts=!0,jQuery.noConflict},jQuery.ready=function(r){jqueryParams=[...jqueryParams,r]},$.ready=function(r){jqueryParams=[...jqueryParams,r]},jQuery.load=function(r){jqueryParams=[...jqueryParams,r]},$.load=function(r){jqueryParams=[...jqueryParams,r]},jQuery.fn.ready=function(r){jqueryParams=[...jqueryParams,r]},$.fn.ready=function(r){jqueryParams=[...jqueryParams,r]};</script><link rel='dns-prefetch' href='//fonts.googleapis.com' />
+<link rel="alternate" type="application/rss+xml" title="WHMCSSmarters &raquo; Feed" href="https://www.whmcssmarters.com/feed/" />
+<link rel="alternate" type="application/rss+xml" title="WHMCSSmarters &raquo; Comments Feed" href="https://www.whmcssmarters.com/comments/feed/" />
+		<!-- This site uses the Google Analytics by ExactMetrics plugin v7.2.1 - Using Analytics tracking - https://www.exactmetrics.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-6QJ2FD8PG9"  type="text/javascript" data-cfasync="false" async></script>
+			<script type="text/javascript" data-cfasync="false">
+				var em_version = '7.2.1';
+				var em_track_user = true;
+				var em_no_track_reason = '';
+				
+								var disableStrs = [
+										'ga-disable-G-6QJ2FD8PG9',
+														];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						if ( document.cookie.indexOf( disableStrs[ index ] + '=true' ) > -1 ) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if ( __gtagTrackerIsOptedOut() ) {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						document.cookie = disableStrs[ index ] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				if ( 'undefined' === typeof gaOptout ) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.ExactMetricsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if ( em_track_user ) {
+					function __gtagDataLayer() {
+						dataLayer.push( arguments );
+					}
+
+					function __gtagTracker( type, name, parameters ) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply( null, arguments );
+							return;
+						}
+
+						if ( type === 'event' ) {
+															parameters.send_to = exactmetrics_frontend.v4_id;
+								var hookName = name;
+								if ( typeof parameters[ 'event_category' ] !== 'undefined' ) {
+									hookName = parameters[ 'event_category' ] + ':' + name;
+								}
+
+								if ( typeof ExactMetricsDualTracker.trackers[ hookName ] !== 'undefined' ) {
+									ExactMetricsDualTracker.trackers[ hookName ]( parameters );
+								} else {
+									__gtagDataLayer( 'event', name, parameters );
+								}
+							
+													} else {
+							__gtagDataLayer.apply( null, arguments );
+						}
+					}
+					__gtagTracker( 'js', new Date() );
+					__gtagTracker( 'set', {
+						'developer_id.dNDMyYj' : true,
+											} );
+										__gtagTracker( 'config', 'G-6QJ2FD8PG9', {"forceSSL":"true","page_path":'\/404.html?page=' + document.location.pathname + document.location.search + '&from=' + document.referrer} );
+															window.gtag = __gtagTracker;										(
+						function () {
+							/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+							/* ga and __gaTracker compatibility shim. */
+							var noopfn = function () {
+								return null;
+							};
+							var newtracker = function () {
+								return new Tracker();
+							};
+							var Tracker = function () {
+								return null;
+							};
+							var p = Tracker.prototype;
+							p.get = noopfn;
+							p.set = noopfn;
+							p.send = function (){
+								var args = Array.prototype.slice.call(arguments);
+								args.unshift( 'send' );
+								__gaTracker.apply(null, args);
+							};
+							var __gaTracker = function () {
+								var len = arguments.length;
+								if ( len === 0 ) {
+									return;
+								}
+								var f = arguments[len - 1];
+								if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+									if ( 'send' === arguments[0] ) {
+										var hitConverted, hitObject = false, action;
+										if ( 'event' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[3] ) {
+												hitObject = {
+													'eventAction': arguments[3],
+													'eventCategory': arguments[2],
+													'eventLabel': arguments[4],
+													'value': arguments[5] ? arguments[5] : 1,
+												}
+											}
+										}
+										if ( 'pageview' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[2] ) {
+												hitObject = {
+													'eventAction': 'page_view',
+													'page_path' : arguments[2],
+												}
+											}
+										}
+										if ( typeof arguments[2] === 'object' ) {
+											hitObject = arguments[2];
+										}
+										if ( typeof arguments[5] === 'object' ) {
+											Object.assign( hitObject, arguments[5] );
+										}
+										if ( 'undefined' !== typeof arguments[1].hitType ) {
+											hitObject = arguments[1];
+											if ( 'pageview' === hitObject.hitType ) {
+												hitObject.eventAction = 'page_view';
+											}
+										}
+										if ( hitObject ) {
+											action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+											hitConverted = mapArgs( hitObject );
+											__gtagTracker( 'event', action, hitConverted );
+										}
+									}
+									return;
+								}
+
+								function mapArgs( args ) {
+									var arg, hit = {};
+									var gaMap = {
+										'eventCategory': 'event_category',
+										'eventAction': 'event_action',
+										'eventLabel': 'event_label',
+										'eventValue': 'event_value',
+										'nonInteraction': 'non_interaction',
+										'timingCategory': 'event_category',
+										'timingVar': 'name',
+										'timingValue': 'value',
+										'timingLabel': 'event_label',
+										'page' : 'page_path',
+										'location' : 'page_location',
+										'title' : 'page_title',
+									};
+									for ( arg in args ) {
+																				if ( ! ( ! args.hasOwnProperty(arg) || ! gaMap.hasOwnProperty(arg) ) ) {
+											hit[gaMap[arg]] = args[arg];
+										} else {
+											hit[arg] = args[arg];
+										}
+									}
+									return hit;
+								}
+
+								try {
+									f.hitCallback();
+								} catch ( ex ) {
+								}
+							};
+							__gaTracker.create = newtracker;
+							__gaTracker.getByName = newtracker;
+							__gaTracker.getAll = function () {
+								return [];
+							};
+							__gaTracker.remove = noopfn;
+							__gaTracker.loaded = true;
+							window['__gaTracker'] = __gaTracker;
+						}
+					)();
+									} else {
+										console.log( "" );
+					( function () {
+							function __gtagTracker() {
+								return null;
+							}
+							window['__gtagTracker'] = __gtagTracker;
+							window['gtag'] = __gtagTracker;
+					} )();
+									}
+			</script>
+				<!-- / Google Analytics by ExactMetrics -->
+				<!-- This site uses the Google Analytics by MonsterInsights plugin v8.2.0 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=UA-74384691-1"  type="text/javascript" data-cfasync="false" async></script>
+			<script type="text/javascript" data-cfasync="false">
+				var mi_version = '8.2.0';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+				
+								var disableStrs = [
+															'ga-disable-UA-74384691-1',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						if ( document.cookie.indexOf( disableStrs[ index ] + '=true' ) > -1 ) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if ( __gtagTrackerIsOptedOut() ) {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for ( var index = 0; index < disableStrs.length; index++ ) {
+						document.cookie = disableStrs[ index ] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[ disableStrs[ index ] ] = true;
+					}
+				}
+
+				if ( 'undefined' === typeof gaOptout ) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if ( mi_track_user ) {
+					function __gtagDataLayer() {
+						dataLayer.push( arguments );
+					}
+
+					function __gtagTracker( type, name, parameters ) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply( null, arguments );
+							return;
+						}
+
+						if ( type === 'event' ) {
+							
+															parameters.send_to = monsterinsights_frontend.ua;
+								__gtagDataLayer( type, name, parameters );
+													} else {
+							__gtagDataLayer.apply( null, arguments );
+						}
+					}
+					__gtagTracker( 'js', new Date() );
+					__gtagTracker( 'set', {
+						'developer_id.dZGIzZG' : true,
+											} );
+															__gtagTracker( 'config', 'UA-74384691-1', {"forceSSL":"true","page_path":'\/404.html?page=' + document.location.pathname + document.location.search + '&from=' + document.referrer} );
+										window.gtag = __gtagTracker;										(
+						function () {
+							/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+							/* ga and __gaTracker compatibility shim. */
+							var noopfn = function () {
+								return null;
+							};
+							var newtracker = function () {
+								return new Tracker();
+							};
+							var Tracker = function () {
+								return null;
+							};
+							var p = Tracker.prototype;
+							p.get = noopfn;
+							p.set = noopfn;
+							p.send = function (){
+								var args = Array.prototype.slice.call(arguments);
+								args.unshift( 'send' );
+								__gaTracker.apply(null, args);
+							};
+							var __gaTracker = function () {
+								var len = arguments.length;
+								if ( len === 0 ) {
+									return;
+								}
+								var f = arguments[len - 1];
+								if ( typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function' ) {
+									if ( 'send' === arguments[0] ) {
+										var hitConverted, hitObject = false, action;
+										if ( 'event' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[3] ) {
+												hitObject = {
+													'eventAction': arguments[3],
+													'eventCategory': arguments[2],
+													'eventLabel': arguments[4],
+													'value': arguments[5] ? arguments[5] : 1,
+												}
+											}
+										}
+										if ( 'pageview' === arguments[1] ) {
+											if ( 'undefined' !== typeof arguments[2] ) {
+												hitObject = {
+													'eventAction': 'page_view',
+													'page_path' : arguments[2],
+												}
+											}
+										}
+										if ( typeof arguments[2] === 'object' ) {
+											hitObject = arguments[2];
+										}
+										if ( typeof arguments[5] === 'object' ) {
+											Object.assign( hitObject, arguments[5] );
+										}
+										if ( 'undefined' !== typeof arguments[1].hitType ) {
+											hitObject = arguments[1];
+											if ( 'pageview' === hitObject.hitType ) {
+												hitObject.eventAction = 'page_view';
+											}
+										}
+										if ( hitObject ) {
+											action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+											hitConverted = mapArgs( hitObject );
+											__gtagTracker( 'event', action, hitConverted );
+										}
+									}
+									return;
+								}
+
+								function mapArgs( args ) {
+									var arg, hit = {};
+									var gaMap = {
+										'eventCategory': 'event_category',
+										'eventAction': 'event_action',
+										'eventLabel': 'event_label',
+										'eventValue': 'event_value',
+										'nonInteraction': 'non_interaction',
+										'timingCategory': 'event_category',
+										'timingVar': 'name',
+										'timingValue': 'value',
+										'timingLabel': 'event_label',
+										'page' : 'page_path',
+										'location' : 'page_location',
+										'title' : 'page_title',
+									};
+									for ( arg in args ) {
+																				if ( ! ( ! args.hasOwnProperty(arg) || ! gaMap.hasOwnProperty(arg) ) ) {
+											hit[gaMap[arg]] = args[arg];
+										} else {
+											hit[arg] = args[arg];
+										}
+									}
+									return hit;
+								}
+
+								try {
+									f.hitCallback();
+								} catch ( ex ) {
+								}
+							};
+							__gaTracker.create = newtracker;
+							__gaTracker.getByName = newtracker;
+							__gaTracker.getAll = function () {
+								return [];
+							};
+							__gaTracker.remove = noopfn;
+							__gaTracker.loaded = true;
+							window['__gaTracker'] = __gaTracker;
+						}
+					)();
+									} else {
+										console.log( "" );
+					( function () {
+							function __gtagTracker() {
+								return null;
+							}
+							window['__gtagTracker'] = __gtagTracker;
+							window['gtag'] = __gtagTracker;
+					} )();
+									}
+			</script>
+				<!-- / Google Analytics by MonsterInsights -->
+		<meta content="Whmcssmarters Child v.1.0.0" name="generator"/><link rel='stylesheet' id='wp-block-library-css'  href='https://www.whmcssmarters.com/wp-includes/css/dist/block-library/style.min.css?ver=5.8.4' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-vendors-style-css'  href='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-vendors-style.css?ver=6.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='wc-blocks-style-css'  href='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/packages/woocommerce-blocks/build/wc-blocks-style.css?ver=6.1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-layout-css'  href='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/css/woocommerce-layout.css?ver=5.9.1' type='text/css' media='all' />
+<link rel='stylesheet' id='woocommerce-smallscreen-css'  href='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/css/woocommerce-smallscreen.css?ver=5.9.1' type='text/css' media='only screen and (max-width: 768px)' />
+<link rel='stylesheet' id='woocommerce-general-css'  href='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/css/woocommerce.css?ver=5.9.1' type='text/css' media='all' />
+<style id='woocommerce-inline-inline-css' type='text/css'>
+.woocommerce form .form-row .required { visibility: visible; }
+</style>
+<link rel='stylesheet' id='extra-fonts-css'  href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='a3wc_sort_display-css'  href='//www.whmcssmarters.com/wp-content/uploads/sass/wc_sort_display.min.css?ver=1547206907' type='text/css' media='all' />
+<link rel='stylesheet' id='popup-maker-site-css'  href='//www.whmcssmarters.com/wp-content/uploads/pum/pum-site-styles.css?generated=1656669009&#038;ver=1.16.2' type='text/css' media='all' />
+<link rel='stylesheet' id='extra-style-parent-css'  href='https://www.whmcssmarters.com/wp-content/themes/Whmcssmarters/style-static.min.css?ver=4.13.1' type='text/css' media='all' />
+<link rel='stylesheet' id='extra-style-css'  href='https://www.whmcssmarters.com/wp-content/themes/Whmcssmarters-child/style.css?ver=1.0.0' type='text/css' media='all' />
+<!--n2css--><script type='text/javascript' id='exactmetrics-frontend-script-js-extra'>
+/* <![CDATA[ */
+var exactmetrics_frontend = {"js_events_tracking":"true","download_extensions":"zip,mp3,mpeg,pdf,docx,pptx,xlsx,rar","inbound_paths":"[{\"path\":\"\\\/go\\\/\",\"label\":\"affiliate\"},{\"path\":\"\\\/recommend\\\/\",\"label\":\"affiliate\"}]","home_url":"https:\/\/www.whmcssmarters.com","hash_tracking":"false","ua":"","v4_id":"G-6QJ2FD8PG9"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/google-analytics-dashboard-for-wp/assets/js/frontend-gtag.min.js?ver=7.2.1' id='exactmetrics-frontend-script-js'></script>
+<script type='text/javascript' id='monsterinsights-frontend-script-js-extra'>
+/* <![CDATA[ */
+var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/www.whmcssmarters.com","hash_tracking":"false","ua":"UA-74384691-1","v4_id":""};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=8.2.0' id='monsterinsights-frontend-script-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/popups-for-divi/scripts/ie-compat.min.js?ver=3.0.3' id='dap-ie-js'></script>
+<link rel="https://api.w.org/" href="https://www.whmcssmarters.com/wp-json/" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.whmcssmarters.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.whmcssmarters.com/wp-includes/wlwmanifest.xml" /> 
+<meta name="generator" content="WordPress 5.8.4" />
+<meta name="generator" content="WooCommerce 5.9.1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1" /><link rel="shortcut icon" href="https://www.whmcssmarters.com/wp-content/uploads/2017/06/favicon.png" />	<noscript><style>.woocommerce-product-gallery{ opacity: 1 !important; }</style></noscript>
+	<meta name="msvalidate.01" content="CAD67135C0C32DA3D9BED3F0178B2B09">
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '348058605911405');
+  fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=348058605911405&amp;ev=PageView&amp;noscript=1"></noscript>
+<script>
+	$(document).ready(function(){
+		console.log(1);
+		var topmenu = '<ul id="et-secondary-menu" class="nav" style="display: block;">'+$('#et-secondary-menu').html()+'</ul>';
+		$('#et-secondary-menu').remove();
+		$('#top-header .container #et-secondary-nav').after(topmenu);
+		
+		$('.mega-menu ul li ul li.menu-item-has-children a').click(function(e){
+			e.preventDefault();
+			if($(this).attr('href') == '#')
+				{
+					if($(this).parent('li').has('ul'))
+				{
+					
+					$(this).parent('li').children('ul').slideToggle(200);
+				}
+				}
+			else{
+				console.log(1);
+				window.location.replace($(this).attr('href'));
+			}
+			
+		})
+		
+	})
+$( document ).ready(function() {
+history.replaceState && history.replaceState(
+  null, '', location.pathname + location.search.replace(/[?&](__cf_chl_jschl_tk__|__cf_chl_captcha_tk__)=[^&]+/, '').replace(/^&/, '?')
+);
+/*$('#top-header').before('<p class="impupdate">We are moving to our new domain from  <strong>WHMCSSMARTERS.COM</strong> TO <a class="blinking" href="https://www.smarters.shop/" target="_blank">SMARTERS.SHOP</a>. All our Products and Services will be the same. Thanks</p>');*/
+
+$('footer').append('<style>@media only screen and (min-width:320px) and (max-width:767px){.woocommerce div.product div.summary, .woocommerce-page div.product div.summary, .product .images, .product .images .slider, .woocommerce div.product div.images, .woocommerce-page div.product div.images{width: 100% !important;}}</style>');
+$(document).find("a[title='WordPress Pricing Table Plugin']").hide();
+
+$('.ptsCol').click(function(){
+
+var lin = $(this +' .ptsActBtn a').attr('href');
+alert(lin);
+window.location.replace(lin);
+})
+
+   $('.promo-slide-in-close-promo').click(function(){
+			 $('.header-top-text').hide();
+        });
+
+});
+
+    
+		</script>
+
+<script>
+document.addEventListener( 'wpcf7mailsent', function( event ) {
+    location = 'https://www.whmcssmarters.com/thank-you/';
+}, false );
+	
+	
+	
+</script>
+
+<div class="header-top-text" style="text-transform: uppercase; display: none;">
+Black Friday Sales Starts Now - Click here for <a href="https://www.whmcssmarters.com/black-friday-offers/" style="text-decoration: underline;">More Info</a>
+<div class="promo-slide-in-close-promo" style="float: right;padding-right: 22px;"><a href="javascript:void(0)">x</a></div>
+</div>
+<style>
+.impupdate
+{
+background: #9e1313;
+color: #fff;
+font-size: 15px;
+padding: 5px;
+text-align: center;
+}
+.blinking{
+font-weight: bold;
+    animation:blinkingText 1.2s infinite;
+}
+@keyframes blinkingText{
+    0%{     color: #ffe65c;
+text-shadow: 0px 0px 1px;   }
+    49%{    color: #ffe65c;
+text-shadow: 0px 0px 1px; }
+    60%{    color: #fff; }
+    99%{    color:#fff;  }
+    100%{   color: #ffe65c;
+text-shadow: 0px 0px 1px;    }
+}
+
+.rs_diwali_div, .lantern
+{
+    -webkit-transform-origin: 50%;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging 3.5s ease-in-out forwards infinite;
+-moz-animation: swinging 3.5s ease-in-out forwards infinite;
+
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+@-webkit-keyframes swinging{
+    0%{-webkit-transform: rotate(10deg);}
+    50%{-webkit-transform: rotate(-5deg);}
+    100%{-webkit-transform: rotate(10deg);}
+}
+ 
+@keyframes swinging{
+    0%{transform: rotate(10deg);}
+    50%{transform: rotate(-5deg);}
+    100%{transform: rotate(10deg);}
+}
+@-moz-keyframes swinging{
+    0%{-moz-transform: rotate(10deg);}
+    50%{-moz-transform: rotate(-5deg);}
+    100%{-moz-transform: rotate(10deg);}
+}
+
+
+.lantern
+{
+    -webkit-transform-origin: 50%;
+    transform-origin: 50% 0;
+    -webkit-animation: swinging1 3.5s ease-in-out forwards infinite;
+-moz-animation: swinging1 3.5s ease-in-out forwards infinite;
+
+    animation: swinging 3.5s ease-in-out forwards infinite;
+}
+@-webkit-keyframes swinging1{
+    0%{-webkit-transform: rotate(-10deg);}
+    50%{-webkit-transform: rotate(5deg);}
+    100%{-webkit-transform: rotate(-10deg);}
+}
+ 
+@keyframes swinging1{
+    0%{transform: rotate(-10deg);}
+    50%{transform: rotate(5deg);}
+    100%{transform: rotate(-10deg);}
+}
+@-moz-keyframes swinging1{
+    0%{-moz-transform: rotate(-10deg);}
+    50%{-moz-transform: rotate(5deg);}
+    100%{-moz-transform: rotate(-10deg);}
+}
+
+	.woocommerce div.product div.images, .woocommerce-page div.product div.images
+{
+width: calc(40% - 12px) !important;
+}
+.woocommerce div.product div.summary, .woocommerce-page div.product div.summary {
+
+    width: calc(60% - 12px) !important;
+}
+/*.pum-container
+{
+border-radius: 0px !important;
+border: 15px solid transparent !important;
+border-image: url(https://www.whmcssmarters.com/wp-content/uploads/2018/11/white-christmas-light-clipart-gif-flashing-8.gif) 55 round !important;
+}
+
+.pum-theme-2965 .pum-container
+{
+padding: 0px !important;
+}*/
+
+
+/*#main-header:before
+{
+width: 100%;
+content:'';
+display: block;
+background: url(/wp-content/uploads/2020/12/starlight-1.png) repeat-x;
+height: 36px;
+background-size: 250px;
+background-position-y: 0px;
+position: absolute;
+margin-top: 0px;
+}*/
+
+#et-navigation .mega-menu > ul > li
+{
+flex-basis: 50%;
+
+width: 50%;
+}
+
+#et-navigation .mega-menu > ul
+{
+left: auto !important;
+width: auto !important;
+padding: 10px 0px;
+}
+
+#et-navigation .mega-menu > ul > li > a:first-of-type
+{
+color: inherit;
+background: #000;
+text-align: center;
+font-weight: bold;
+}
+
+.logo
+{
+width: 260px !important;
+}
+
+.pum-theme-2965 .pum-container, .pum-theme-hello-box .pum-container
+{
+width: 70%;
+}
+
+@media screen and (min-width:320px) and (max-width:900px)
+{
+#et-mobile-navigation #et-extra-mobile-menu .sub-menu .sub-menu
+{
+display: block;
+}
+#et-menu > li > a:hover, #et-menu > li.menu-item-has-children > a:hover::after, #et-menu > li.mega-menu-featured > a:hover::after, #et-navigation > ul#et-menu > li.current-menu-item > a, #et-navigation > ul#et-menu > li.current_page_item > a, #et-extra-mobile-menu > li.mega-menu-featured > a:hover::after, #et-extra-mobile-menu > li.current-menu-item > a, #et-extra-mobile-menu > li.current_page_item > a, #et-extra-mobile-menu > li > a:hover
+{
+color: #fff;
+}
+}
+
+#popmake-10633
+{
+   background: url('https://www.whmcssmarters.com/wp-content/uploads/2020/12/rtht.png');
+background-size: cover;
+}
+#scg-nyc-wrapper
+{
+background: transparent !important;
+}
+.scg-nyc-digits-wrapper
+{
+color: #fff !important;
+}
+</style>
+
+<script type="text/javascript">
+    window._mNHandle = window._mNHandle || {};
+    window._mNHandle.queue = window._mNHandle.queue || [];
+    medianet_versionId = "3121199";
+</script>
+<script src="https://contextual.media.net/dmedianet.js?cid=8CU5Q59XW" async="async"></script>
+
+
+<!-- Global site tag (gtag.js) - Google Ads: 943440239 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-943440239"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-943440239');
+</script>
+<link rel="stylesheet" id="et-extra-customizer-global-cached-inline-styles" href="https://www.whmcssmarters.com/wp-content/et-cache/global/et-extra-customizer-global.min.css?ver=1660995216" /></head>
+<body class="error404 theme-Whmcssmarters et_divi_builder woocommerce-no-js et_extra et_fixed_nav et_pb_gutters3 et_primary_nav_dropdown_animation_Default et_secondary_nav_dropdown_animation_Default  et_includes_sidebar et-db">
+	<div id="page-container" class="page-container">
+				<!-- Header -->
+		<header class="header left-right">
+						<!-- #top-header -->
+			<div id="top-header" style="">
+				<div class="container">
+
+					<!-- Secondary Nav -->
+											<div id="et-secondary-nav" class="et-trending">
+						
+							<!-- ET Trending -->
+							<div id="et-trending">
+
+								<!-- ET Trending Button -->
+								<a id="et-trending-button" href="#" title="">
+									<span></span>
+									<span></span>
+									<span></span>
+								</a>
+
+								<!-- ET Trending Label -->
+								<h4 id="et-trending-label">
+									TRENDING:								</h4>
+
+								<!-- ET Trending Post Loop -->
+								<div id='et-trending-container'>
+																											<div id="et-trending-post-13268" class="et-trending-post et-trending-latest">
+											<a href="https://www.whmcssmarters.com/started-offering-vpn-software-solution-for-business/">Started Offering VPN Software Solution for Business</a>
+										</div>
+																									</div>
+							</div>
+							<ul id="et-secondary-menu" class="nav"><li id="menu-item-210" class="forumicon menu-item menu-item-type-custom menu-item-object-custom menu-item-210"><a target="_blank" rel="noopener" href="https://forum.whmcssmarters.com">FORUMS</a></li>
+<li id="menu-item-208" class="blogicon menu-item menu-item-type-post_type menu-item-object-page menu-item-208"><a href="https://www.whmcssmarters.com/news/">BLOG</a></li>
+<li id="menu-item-205" class="clientareaicon menu-item menu-item-type-custom menu-item-object-custom menu-item-205"><a href="https://www.whmcssmarters.com/clients/clientarea.php">CLIENT AREA</a></li>
+</ul>
+												</div>
+					
+					<!-- #et-info -->
+					<div id="et-info">
+
+						
+						<!-- .et-extra-social-icons -->
+						<ul class="et-extra-social-icons" style="">
+																																														<li class="et-extra-social-icon facebook">
+									<a href="https://www.facebook.com/pg/Official.WHMCS.Smarters" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-facebook"></a>
+								</li>
+																																															<li class="et-extra-social-icon twitter">
+									<a href="https://twitter.com/whmcs_smarters" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-twitter"></a>
+								</li>
+																																																																																																																																																																																																										<li class="et-extra-social-icon instagram">
+									<a href="https://instagram.com" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-instagram"></a>
+								</li>
+																																																																																																																																																																																																																																																																								<li class="et-extra-social-icon youtube">
+									<a href="https://www.youtube.com/channel/UCSPqvlBqhy4LSlOIY-Jektw" class="et-extra-icon et-extra-icon-background-hover et-extra-icon-youtube"></a>
+								</li>
+																																																																																																																																																																																</ul>
+						
+						<!-- .et-top-search -->
+						
+						<!-- cart -->
+											</div>
+				</div><!-- /.container -->
+			</div><!-- /#top-header -->
+
+			
+			<!-- Main Header -->
+			<div id="main-header-wrapper">
+				<div id="main-header" data-fixed-height="80">
+					<div class="container">
+					<!-- ET Ad -->
+						
+						
+						<!-- Logo -->
+						<a class="logo" href="https://www.whmcssmarters.com/" data-fixed-height="60">
+							<img src="https://www.whmcssmarters.com/wp-content/uploads/2020/07/logo.png" width="1571" height="278" alt="WHMCSSmarters" id="logo" />
+						</a>
+
+						
+						<!-- ET Navigation -->
+						<div id="et-navigation" class="">
+							<ul id="et-menu" class="nav"><li id="menu-item-77" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-77"><a href="https://www.whmcssmarters.com/our-services/">Our Services</a>
+<ul class="sub-menu">
+	<li id="menu-item-8647" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8647"><a href="https://www.whmcssmarters.com/vpn-software-solution/">VPN Software Solution</a></li>
+	<li id="menu-item-6178" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6178"><a href="https://www.whmcssmarters.com/iptv-software-solutions/">OTT Software Solutions</a></li>
+	<li id="menu-item-6179" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-6179"><a href="https://www.whmcssmarters.com/whmcs-custom-services/">WHMCS Custom Services</a></li>
+</ul>
+</li>
+<li id="menu-item-5100" class="mega-menu menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-5100"><a href="/iptv-billing-solution/">Our Products</a>
+<ul class="sub-menu">
+	<li id="menu-item-12283" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12283"><a href="#">VPN Software Solution</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12284" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12284"><a href="https://www.whmcssmarters.com/vpn-software-solution/#vpnpanel">Smarters VPN Panel</a></li>
+		<li id="menu-item-12288" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12288"><a href="#">Custom VPN Apps</a>
+		<ul class="sub-menu">
+			<li id="menu-item-12289" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12289"><a href="https://www.whmcssmarters.com/vpn-software-solution/#vpnapp">Android VPN App</a></li>
+			<li id="menu-item-12290" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12290"><a href="https://www.whmcssmarters.com/vpn-software-solution/#vpnapp">iOS VPN App</a></li>
+			<li id="menu-item-12291" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12291"><a href="https://www.whmcssmarters.com/vpn-software-solution/#vpnapp">MAC/Windows VPN App</a></li>
+		</ul>
+</li>
+		<li id="menu-item-12292" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12292"><a href="https://www.whmcssmarters.com/vpn-software-solution/#vpnwebsite">Smarters VPN Websites</a></li>
+	</ul>
+</li>
+	<li id="menu-item-6794" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6794"><a href="#">OTT Software Solution</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12418" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12418"><a href="#">Smarters Billing Modules For</a>
+		<ul class="sub-menu">
+			<li id="menu-item-13038" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13038"><a href="https://www.whmcssmarters.com/1-stream-panel-billing/">1 Stream Panel</a></li>
+			<li id="menu-item-13037" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13037"><a href="https://www.whmcssmarters.com/smarters-billing-solution-xtream-ui-panel/">Xtream UI Panel</a></li>
+			<li id="menu-item-13036" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13036"><a href="https://www.whmcssmarters.com/smarters-billing-solution-xui-one/">XUI ONE Panel</a></li>
+			<li id="menu-item-13035" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13035"><a href="https://www.whmcssmarters.com/smarters-billing-solution-zapx/">Zapx Panel</a></li>
+			<li id="menu-item-13861" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13861"><a href="https://www.whmcssmarters.com/nxt-panel/">NXT Panel</a></li>
+			<li id="menu-item-13034" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13034"><a href="https://www.whmcssmarters.com/smarters-billing-solution-iptv-dashboard/">Dashboard Panel</a></li>
+			<li id="menu-item-13033" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13033"><a href="https://www.whmcssmarters.com/smarters-billing-solution-streaminy/">Streaminy Billing Panel</a></li>
+			<li id="menu-item-13032" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13032"><a href="https://www.whmcssmarters.com/smarters-billing-solution-super-reseller-panel/">Super Reseller Panel</a></li>
+		</ul>
+</li>
+		<li id="menu-item-13748" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-13748"><a href="#">Custom OTT Apps</a>
+		<ul class="sub-menu">
+			<li id="menu-item-13747" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13747"><a href="https://www.whmcssmarters.com/ott-android-app/">OTT Android App</a></li>
+			<li id="menu-item-13746" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13746"><a href="https://www.whmcssmarters.com/ott-win-mac-linux-app/">OTT Win/MAC/Linux App</a></li>
+			<li id="menu-item-13745" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13745"><a href="https://www.whmcssmarters.com/ott-ios-app/">OTT iOS App</a></li>
+			<li id="menu-item-13744" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13744"><a href="https://www.whmcssmarters.com/ott-web-tv-player/">OTT Web TV Player</a></li>
+			<li id="menu-item-13743" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13743"><a href="https://www.whmcssmarters.com/ott-roku-app/">OTT Roku App</a></li>
+			<li id="menu-item-13742" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13742"><a href="https://www.whmcssmarters.com/ott-smart-tv-app/">OTT Smart TV App</a></li>
+		</ul>
+</li>
+		<li id="menu-item-4415" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-4415"><a href="https://www.whmcssmarters.com/iptv-website-themes/">Customizable OTT Website</a></li>
+		<li id="menu-item-13890" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13890"><a href="https://www.whmcssmarters.com/ott-app-themes-design/">OTT App Theme Designs</a></li>
+		<li id="menu-item-14006" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-14006"><a href="https://www.whmcssmarters.com/smarters-codes-activation-panel/">Smarters Codes Activation Panel</a></li>
+	</ul>
+</li>
+	<li id="menu-item-6792" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-6792"><a href="#">WHMCS Custom Services</a>
+	<ul class="sub-menu">
+		<li id="menu-item-12419" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12419"><a href="#">Custom Modules</a>
+		<ul class="sub-menu">
+			<li id="menu-item-7626" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-7626"><a href="https://www.whmcssmarters.com/payment-gateway-module-for-whmcs/">Payment Gateway</a></li>
+			<li id="menu-item-12305" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12305"><a href="#">Server Module</a></li>
+			<li id="menu-item-12306" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12306"><a href="#">Addon Module</a></li>
+		</ul>
+</li>
+		<li id="menu-item-12307" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-12307"><a href="#">Custom Services</a>
+		<ul class="sub-menu">
+			<li id="menu-item-12308" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12308"><a href="#">Installation</a></li>
+			<li id="menu-item-12309" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12309"><a href="#">Configuration</a></li>
+		</ul>
+</li>
+	</ul>
+</li>
+</ul>
+</li>
+<li id="menu-item-13749" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13749"><a href="https://www.whmcssmarters.com/ott-apps-development/">OTT Apps Development</a></li>
+<li id="menu-item-75" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-75"><a href="https://www.whmcssmarters.com/about-us/">About Us</a></li>
+<li id="menu-item-12705" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-12705"><a href="https://www.whmcssmarters.com/contact-us/">Contact us</a></li>
+</ul>							<div id="et-mobile-navigation">
+			<span class="show-menu">
+				<div class="show-menu-button">
+					<span></span>
+					<span></span>
+					<span></span>
+				</div>
+				<p>Select Page</p>
+			</span>
+			<nav>
+			</nav>
+		</div> <!-- /#et-mobile-navigation -->						</div><!-- /#et-navigation -->
+					</div><!-- /.container -->
+				</div><!-- /#main-header -->
+			</div><!-- /#main-header-wrapper -->
+
+		</header>
+
+				
+<div id="main-content">
+	<div class="container">
+		<div id="content-area" class=" clearfix">
+			<div class="et_pb_extra_column_main">
+				
+									<div class="posts-blog-feed-module standard post-module et_pb_extra_module module">
+	<div class="paginated_content">
+		<div class="paginated_page" >
+					<article class='nopost'>
+				<h5>Sorry, No Posts Found</h5>
+			</article>
+					</div><!-- .paginated_page -->
+	</div><!-- .paginated_content -->
+
+		</div><!-- /.posts-blog-feed-module -->
+							</div>
+			
+		</div> <!-- #content-area -->
+	</div> <!-- .container -->
+</div> <!-- #main-content -->
+
+	
+	<footer id="footer" class="footer_columns_3">
+		<div class="container">
+	<div class="et_pb_extra_row container-width-change-notify">
+						<div class="et_pb_extra_column odd column-1">
+					<div id="text-2" class="et_pb_widget widget_text"><h4 class="widgettitle">About us</h4>			<div class="textwidget"><p><a href="#"><img src="https://www.whmcssmarters.com/wp-content/uploads/2017/06/Footer-logo.png" /></a></p>
+<p style="margin-top: -20px; text-align: justify; color: #fff;">We are the Excellent “Software Development company” for your brand &#038; business. We care about “your business” as “our business”. Our proprietary technique combines the best of technology and people to deliver business-impacting results with reckless speed. We’re driven by a passion to convey great work. </p>
+<p><a href="https://www.whmcssmarters.com/about-us/"><button class="foter-read et_pb_promo_button et_pb_button">Get To Know more</button></a></p>
+</div>
+		</div> <!-- end .et_pb_widget -->				</div>
+								<div class="et_pb_extra_column even column-2">
+					<div id="nav_menu-2" class="et_pb_widget widget_nav_menu"><h4 class="widgettitle">Quick Links</h4><div class="menu-quicklinks-container"><ul id="menu-quicklinks" class="menu"><li id="menu-item-13750" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13750"><a href="https://www.whmcssmarters.com/ott-apps-development/">Multiple OTT Platform Development</a></li>
+<li id="menu-item-13740" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13740"><a href="https://www.whmcssmarters.com/vpn-software-solution/">VPN Software Development</a></li>
+<li id="menu-item-13741" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-13741"><a href="#">Mobile Application Development</a></li>
+<li id="menu-item-13755" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-13755"><a href="https://www.whmcssmarters.com/iptv-website-themes/">Web Design &#038; Web Development</a></li>
+</ul></div></div> <!-- end .et_pb_widget -->				</div>
+								<div class="et_pb_extra_column even column-4">
+					<div id="text-3" class="et_pb_widget widget_text"><h4 class="widgettitle">We Accept Payments Via</h4>			<div class="textwidget"><p><a href="https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image.jpg"><img loading="lazy" class="alignnone wp-image-11579 " src="https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-300x138.jpg" alt="" width="346" height="159" srcset="https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-300x138.jpg 300w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-627x288.jpg 627w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-1024x471.jpg 1024w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-768x353.jpg 768w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image-1080x497.jpg 1080w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image.jpg 1500w" sizes="(max-width: 346px) 100vw, 346px" /></a></p>
+<p><a href="https://www.whmcssmarters.com/wp-content/uploads/2021/11/paypal-image.jpg"><img loading="lazy" class="alignnone wp-image-11578 " src="https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-300x118.jpg" alt="" width="404" height="159" srcset="https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-300x118.jpg 300w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-627x247.jpg 627w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-1024x404.jpg 1024w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-768x303.jpg 768w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1-1080x426.jpg 1080w, https://www.whmcssmarters.com/wp-content/uploads/2021/11/we-accept-image-1.jpg 1500w" sizes="(max-width: 404px) 100vw, 404px" /></a></p>
+</div>
+		</div> <!-- end .et_pb_widget -->				</div>
+					</div>
+</div>
+		<div id="footer-bottom">
+			<div class="container">
+
+				<!-- Footer Info -->
+			<!--	<p id="footer-info">Designed by <a href="http://www.elegantthemes.com" title="Premium WordPress Themes">Elegant Themes</a> | Powered by <a href="http://www.wordpress.org">WordPress</a></p> -->
+<!-- Footer Info -->
+				<p id="footer-info"><a href="https://whmcssmarters.com/" title="WHMCSSmarters">WHMCSSmarters</a> is a software development company. It is a separate entity from WHMCS ltd.				</p>
+				<!-- Footer Navigation -->
+								<div id="footer-nav">
+					<ul id="footer-menu" class="bottom-nav"><li id="menu-item-665" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-665"><a href="https://www.whmcssmarters.com/our-services/">Our Services</a></li>
+<li id="menu-item-664" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-664"><a href="https://www.whmcssmarters.com/about-us/">About Us</a></li>
+<li id="menu-item-961" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-961"><a href="https://www.whmcssmarters.com/support/">Support</a></li>
+<li id="menu-item-929" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-929"><a href="https://www.whmcssmarters.com/refund-policy/">Refund Policy</a></li>
+<li id="menu-item-930" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-930"><a href="https://www.whmcssmarters.com/privacy-policy/">Privacy Policy</a></li>
+<li id="menu-item-8001" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-8001"><a href="https://www.whmcssmarters.com/terms-of-service/">Terms Of Service</a></li>
+</ul>						<ul class="et-extra-social-icons" style="">
+																																								<li class="et-extra-social-icon facebook">
+								<a href="https://www.facebook.com/pg/Official.WHMCS.Smarters" class="et-extra-icon et-extra-icon-background-none et-extra-icon-facebook"></a>
+							</li>
+																																									<li class="et-extra-social-icon twitter">
+								<a href="https://twitter.com/whmcs_smarters" class="et-extra-icon et-extra-icon-background-none et-extra-icon-twitter"></a>
+							</li>
+																																																																																																																																																																																<li class="et-extra-social-icon instagram">
+								<a href="https://instagram.com" class="et-extra-icon et-extra-icon-background-none et-extra-icon-instagram"></a>
+							</li>
+																																																																																																																																																																																																																																						<li class="et-extra-social-icon youtube">
+								<a href="https://www.youtube.com/channel/UCSPqvlBqhy4LSlOIY-Jektw" class="et-extra-icon et-extra-icon-background-none et-extra-icon-youtube"></a>
+							</li>
+																																																																																																																																																										</ul>
+									</div> <!-- /#et-footer-nav -->
+				
+			</div>
+		</div>
+	</footer>
+	</div> <!-- #page-container -->
+
+			<span title="Back To Top" id="back_to_top"></span>
+	
+	<div id="pum-11509" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay pum-click-to-close click_open" data-popmake="{&quot;id&quot;:11509,&quot;slug&quot;:&quot;term-and-condition&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;cookie_name&quot;:&quot;&quot;,&quot;extra_selectors&quot;:&quot;.termpopup&quot;}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:&quot;medium&quot;,&quot;responsive_min_width&quot;:&quot;0%&quot;,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width&quot;:&quot;100%&quot;,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:&quot;50px&quot;,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:&quot;380px&quot;,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:&quot;1&quot;,&quot;location&quot;:&quot;center&quot;,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:&quot;0&quot;,&quot;position_left&quot;:&quot;10&quot;,&quot;position_bottom&quot;:&quot;10&quot;,&quot;position_right&quot;:&quot;10&quot;,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:&quot;fade&quot;,&quot;animation_speed&quot;:&quot;350&quot;,&quot;animation_origin&quot;:&quot;right center&quot;,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:&quot;1999999999&quot;},&quot;close&quot;:{&quot;text&quot;:&quot;&quot;,&quot;button_delay&quot;:&quot;0&quot;,&quot;overlay_click&quot;:&quot;1&quot;,&quot;esc_press&quot;:&quot;1&quot;,&quot;f4_press&quot;:&quot;1&quot;},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" >
+
+	<div id="popmake-11509" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<h3>Terms and Conditions</h3>
+<ul>
+<li>If you have bought our “mutliDNS Support” then you allow up to 5 DNS at the time to change.</li>
+<li>You can change your DNS anytime and unlimited time from the client area.</li>
+<li>Multiuser Functionality is not available for rebranding ( Client’s App)</li>
+<li>The fixed price / Recurring price applications will include all the standard features and functionality as listed.</li>
+<li>However, any customized features/ requests are charged on an hourly basis.</li>
+<li>You are not permitted to change the logo of the Android/iOS or Roku application. If you want to do so, the only way to do the same is to order a new application.</li>
+<li>Failure in doing complete payment in a fair amount of time will result in shutting down of the application from the developer’s side.</li>
+<li>The product will be shut down with immediate effect if any modifications are made or any kind of add-ons is imparted on the application without obtaining approval for the same.</li>
+<li>If our app is tried to edit/decompile by any software, we will not able to provide your support and your product/app can be canceled which may cause affect your customers. Legal action can be taken.</li>
+<li>We cannot be held responsible if your application is removed or not approved by Apple or Google Support due to any copyright, legal content issue, etc. Any issue related to coding will be resolved by us.</li>
+<li>Please note that the terms and conditions of our services may change at any time without prior notification.</li>
+<li>After the 10 days of your Next Due Date, your application will be suspended if you are failed to pay ( OTT Smarters – TV Box Version)</li>
+</ul>
+<h3 style="text-align: center;">Delivery Schedule</h3>
+<ul>
+<li>Depending on the current order queues, the standard delivery times vary from 5 working days due to the latest UPGRADE to Version 3.</li>
+<li>Please note that we don’t fulfill any orders on national holidays and weekends.</li>
+</ul>
+<h3 style="text-align: center;">Suspension</h3>
+<ul>
+<li>As The payment for OTT Smarters – TV Box Version are on recurring basis, so our system will be generating an invoice 5 days before the Due Date and after 5 days of due date , your application will be suspended if you don’t pay.</li>
+<li>Our system keeps sending your reminder of your due payment. You will be charged automatically on the due date if your paypal/stripe recurring profile is active.</li>
+</ul>
+<h3 style="text-align: center;">Refund &amp; Repayments</h3>
+<ul>
+<li>We don’t entertain any refund policy as we are providing you with a demo of our applications. It is obligatory for you to try out our demo before going ahead with the final purchase.</li>
+<li>The prices of the applications can be changed anytime without prior notification.</li>
+</ul>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			CLOSE            </button>
+		
+	</div>
+
+</div>
+<div id="pum-2989" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:2989,&quot;slug&quot;:&quot;android-page-offer&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_left&quot;:false,&quot;position_right&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" >
+
+	<div id="popmake-2989" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><img loading="lazy" class="alignnone size-large wp-image-7005" src="https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-1024x670.jpg" alt="" width="100%" height="auto" srcset="https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-1024x670.jpg 1024w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-627x410.jpg 627w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-300x196.jpg 300w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-768x502.jpg 768w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-1080x706.jpg 1080w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx-610x399.jpg 610w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Linx.jpg 1300w" sizes="(max-width: 1024px) 100vw, 1024px" /><br />
+(USE COUPON &#8220;<span style="padding: 5px; background: #f00; color: #fff;">CHRISTMAS50</span>&#8221; WHILE ORDERING)</p>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+<div id="pum-5063" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:5063,&quot;slug&quot;:&quot;windowsapp&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_left&quot;:false,&quot;position_right&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" >
+
+	<div id="popmake-5063" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<p><img loading="lazy" class="alignnone size-large wp-image-7004" src="https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-1024x670.jpg" alt="" width="100%" height="auto" srcset="https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-1024x670.jpg 1024w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-627x410.jpg 627w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-300x196.jpg 300w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-768x502.jpg 768w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-1080x706.jpg 1080w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window-610x399.jpg 610w, https://www.whmcssmarters.com/wp-content/uploads/2018/09/Window.jpg 1300w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+<div id="pum-6678" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:6678,&quot;slug&quot;:&quot;webplayer-addon&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_left&quot;:false,&quot;position_right&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" aria-labelledby="pum_popup_title_6678">
+
+	<div id="popmake-6678" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				            <div id="pum_popup_title_6678" class="pum-title popmake-title">
+				NEW ADDON LAUNCHED			</div>
+		
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<h2></h2>
+<h2 style="text-align: center;">We are happily announcing that we are launching new admin panel for webtv player.</h2>
+<p style="text-align: center;"><div class='one_half'>
+					<a href='https://www.whmcssmarters.com/web-tv-for-iptv/#adminpanel' class='small-button smallblue' target="_blank">Learn More</a>
+				</div><div class='one_half et_column_last'>
+					<a href='https://www.whmcssmarters.com/clients/cart.php?a=add&#038;pid=127' class='small-button smallorange'>Buy Now</a>
+				</div><div class='clear'></div></p>
+<style>
+#popmake-6678<br />
+{<br />
+padding: 40px 0px !important;<br />
+}<br />
+.one_half<br />
+{<br />
+text-align: center;<br />
+}<br />
+</style>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+<div id="pum-2968" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:2968,&quot;slug&quot;:&quot;xtreme-page-offer&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_right&quot;:false,&quot;position_left&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" aria-labelledby="pum_popup_title_2968">
+
+	<div id="popmake-2968" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				            <div id="pum_popup_title_2968" class="pum-title popmake-title">
+				<img src="https://www.whmcssmarters.com/wp-content/uploads/2018/01/star-5points.png" alt="newyearstar" style="width: 40px;">CYBER MONDAY OFFER			</div>
+		
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<div style="text-align: center; padding-top: 15px;">
+<p><strong style="font-size: 18px; color: #eb2300;">40% Discount on Smart IPTV Billing Panel</strong><br />
+<strong><em>Use Coupon Code :</em> NEWYEAR40 </strong><br />
+<strong>Order Link </strong>: <a href="https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=111&amp;promocode=NEWYEAR40">https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=111&amp;promocode=NEWYEAR40</a></p>
+<div class="pop-android-button" style="margin: 20px 0px 5px 0px; width: 100%; text-align: center;"><a class="et_pb_button" href="https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=111&amp;promocode=CHRISTMAS20" target="_blank" rel="noopener">Order</a></div>
+<p><em> (The Offer Popup shows on every time page is refreshed )</em></p>
+</div>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+<div id="pum-2985" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:2985,&quot;slug&quot;:&quot;stalker-page-offer&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_right&quot;:false,&quot;position_left&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" aria-labelledby="pum_popup_title_2985">
+
+	<div id="popmake-2985" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				            <div id="pum_popup_title_2985" class="pum-title popmake-title">
+				Get Your Own Custom IPTV App			</div>
+		
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<div style="text-align: center; padding-top: 15px;">
+<p><strong style="font-size: 18px; color: #eb2300;">We’re offering rebranding of our own App IPTV Smarters Pro ( Android app ) </strong><br />
+<strong><em>One Time License ( No Monthly Payments) </em> </strong><br />
+<strong>Order Link </strong>: <a href="https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=87&amp;promocode=NEWYEAR40">https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=87&amp;promocode=NEWYEAR40</a></p>
+<div class="pop-android-button" style="margin: 20px 0px 5px 0px; width: 100%; text-align: center;"><a href='https://www.whmcssmarters.com/clients/cart.php?a=add&#038;pid=87&#038;promocode=NEWYEAR40' class='big-button bigorange' target="_blank">ORDER NOW</a></div>
+<p><em> (The Offer Popup shows on every time page is refreshed )</em></p>
+</div>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+<div id="pum-4819" class="pum pum-overlay pum-theme-2962 pum-theme-default-theme popmake-overlay click_open" data-popmake="{&quot;id&quot;:4819,&quot;slug&quot;:&quot;webplayer-weekend-offer&quot;,&quot;theme_id&quot;:2962,&quot;cookies&quot;:[],&quot;triggers&quot;:[{&quot;type&quot;:&quot;click_open&quot;,&quot;settings&quot;:{&quot;extra_selectors&quot;:&quot;&quot;,&quot;cookie_name&quot;:null}}],&quot;mobile_disabled&quot;:null,&quot;tablet_disabled&quot;:null,&quot;meta&quot;:{&quot;display&quot;:{&quot;responsive_min_width&quot;:false,&quot;responsive_max_width&quot;:false,&quot;position_bottom&quot;:false,&quot;position_right&quot;:false,&quot;position_left&quot;:false,&quot;stackable&quot;:false,&quot;overlay_disabled&quot;:false,&quot;scrollable_content&quot;:false,&quot;disable_reposition&quot;:false,&quot;size&quot;:false,&quot;responsive_min_width_unit&quot;:false,&quot;responsive_max_width_unit&quot;:false,&quot;custom_width&quot;:false,&quot;custom_width_unit&quot;:false,&quot;custom_height&quot;:false,&quot;custom_height_unit&quot;:false,&quot;custom_height_auto&quot;:false,&quot;location&quot;:false,&quot;position_from_trigger&quot;:false,&quot;position_top&quot;:false,&quot;position_fixed&quot;:false,&quot;animation_type&quot;:false,&quot;animation_speed&quot;:false,&quot;animation_origin&quot;:false,&quot;overlay_zindex&quot;:false,&quot;zindex&quot;:false},&quot;close&quot;:{&quot;text&quot;:false,&quot;button_delay&quot;:false,&quot;overlay_click&quot;:false,&quot;esc_press&quot;:false,&quot;f4_press&quot;:false},&quot;click_open&quot;:[]}}" role="dialog" aria-hidden="true" aria-labelledby="pum_popup_title_4819">
+
+	<div id="popmake-4819" class="pum-container popmake theme-2962 pum-responsive pum-responsive-medium responsive size-medium">
+
+				
+
+				            <div id="pum_popup_title_4819" class="pum-title popmake-title">
+				BIG CHRISTMAS SALE			</div>
+		
+
+		
+
+				<div class="pum-content popmake-content" tabindex="0">
+			<h1 style="text-align: center;"><span style="color: #008000;"><strong>40% Off + Free Installation</strong></span></h1>
+<p style="text-align: center;"><strong>Web TV Player ( Client area based on Xtream Codes)</strong></p>
+<p style="text-align: center;">It brings the ability to your customers watch Live, Movies &amp; Series from the Web Browser on Computer, Laptop or any device which have the web browser installed.</p>
+<p style="text-align: center;">Order Now : <a href="https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=143&amp;promocode=NEWYEAR40"><span style="color: #3366ff;">https://www.whmcssmarters.com/clients/cart.php?a=add&amp;pid=143&amp;promocode=NEWYEAR40</span></a></p>
+		</div>
+
+
+				
+
+				            <button type="button" class="pum-close popmake-close" aria-label="Close">
+			&#215;            </button>
+		
+	</div>
+
+</div>
+	<script type="text/javascript">
+		(function () {
+			var c = document.body.className;
+			c = c.replace(/woocommerce-no-js/, 'woocommerce-js');
+			document.body.className = c;
+		})();
+	</script>
+	<script type='text/javascript' src='https://www.whmcssmarters.com/wp-includes/js/jquery/jquery.min.js?ver=3.6.0' id='jquery-core-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.3.2' id='jquery-migrate-js'></script>
+<script type='text/javascript' id='jquery-js-after'>
+jqueryParams.length&&$.each(jqueryParams,function(e,r){if("function"==typeof r){var n=String(r);n.replace("$","jQuery");var a=new Function("return "+n)();$(document).ready(a)}});
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.5.9.1' id='jquery-blockui-js'></script>
+<script type='text/javascript' id='wc-add-to-cart-js-extra'>
+/* <![CDATA[ */
+var wc_add_to_cart_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_view_cart":"View cart","cart_url":"https:\/\/www.whmcssmarters.com\/cart\/","is_cart":"","cart_redirect_after_add":"no"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=5.9.1' id='wc-add-to-cart-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.5.9.1' id='js-cookie-js'></script>
+<script type='text/javascript' id='woocommerce-js-extra'>
+/* <![CDATA[ */
+var woocommerce_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=5.9.1' id='woocommerce-js'></script>
+<script type='text/javascript' id='wc-cart-fragments-js-extra'>
+/* <![CDATA[ */
+var wc_cart_fragments_params = {"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_b1b76e012703b5e4da351fac3d896fdb","fragment_name":"wc_fragments_b1b76e012703b5e4da351fac3d896fdb","request_timeout":"5000"};
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/woocommerce/assets/js/frontend/cart-fragments.min.js?ver=5.9.1' id='wc-cart-fragments-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-includes/js/masonry.min.js?ver=4.2.2' id='masonry-js'></script>
+<script type='text/javascript' id='extra-scripts-js-extra'>
+/* <![CDATA[ */
+var EXTRA = {"images_uri":"https:\/\/www.whmcssmarters.com\/wp-content\/themes\/Whmcssmarters\/images\/","ajaxurl":"https:\/\/www.whmcssmarters.com\/wp-admin\/admin-ajax.php","your_rating":"Your Rating:","item_in_cart_count":"%d Item in Cart","items_in_cart_count":"%d Items in Cart","item_count":"%d Item","items_count":"%d Items","rating_nonce":"471391eed6","timeline_nonce":"b031f4ec5a","blog_feed_nonce":"27f25e9a16","error":"There was a problem, please try again.","contact_error_name_required":"Name field cannot be empty.","contact_error_email_required":"Email field cannot be empty.","contact_error_email_invalid":"Please enter a valid email address.","is_ab_testing_active":"","is_cache_plugin_active":"no"};
+var et_builder_utils_params = {"condition":{"diviTheme":false,"extraTheme":true},"scrollLocations":["app","top"],"builderScrollLocations":{"desktop":"app","tablet":"app","phone":"app"},"onloadScrollLocation":"app","builderType":"fe"};
+var et_frontend_scripts = {"builderCssContainerPrefix":"#et-boc","builderCssLayoutPrefix":"#et-boc .et-l"};
+var et_pb_custom = {"ajaxurl":"https:\/\/www.whmcssmarters.com\/wp-admin\/admin-ajax.php","images_uri":"https:\/\/www.whmcssmarters.com\/wp-content\/themes\/Whmcssmarters\/images","builder_images_uri":"https:\/\/www.whmcssmarters.com\/wp-content\/themes\/Whmcssmarters\/includes\/builder\/images","et_frontend_nonce":"a8acd44894","subscription_failed":"Please, check the fields below to make sure you entered the correct information.","et_ab_log_nonce":"e1685925b1","fill_message":"Please, fill in the following fields:","contact_error_message":"Please, fix the following errors:","invalid":"Invalid email","captcha":"Captcha","prev":"Prev","previous":"Previous","next":"Next","wrong_captcha":"You entered the wrong number in captcha.","wrong_checkbox":"Checkbox","ignore_waypoints":"yes","is_divi_theme_used":"","widget_search_selector":".widget_search","ab_tests":[],"is_ab_testing_active":"","page_id":"","unique_test_id":"","ab_bounce_rate":"","is_cache_plugin_active":"no","is_shortcode_tracking":"","tinymce_uri":""};
+var et_pb_box_shadow_elements = [];
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/themes/Whmcssmarters/scripts/scripts.min.js?ver=4.13.1' id='extra-scripts-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/themes/Whmcssmarters/includes/builder/feature/dynamic-assets/assets/js/jquery.fitvids.js?ver=4.13.1' id='fitvids-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-includes/js/jquery/ui/core.min.js?ver=1.12.1' id='jquery-ui-core-js'></script>
+<script type='text/javascript' id='popup-maker-site-js-extra'>
+/* <![CDATA[ */
+var pum_vars = {"version":"1.16.2","pm_dir_url":"https:\/\/www.whmcssmarters.com\/wp-content\/plugins\/popup-maker\/","ajaxurl":"https:\/\/www.whmcssmarters.com\/wp-admin\/admin-ajax.php","restapi":"https:\/\/www.whmcssmarters.com\/wp-json\/pum\/v1","rest_nonce":null,"default_theme":"2962","debug_mode":"","disable_tracking":"","home_url":"\/","message_position":"top","core_sub_forms_enabled":"1","popups":[],"analytics_route":"analytics","analytics_api":"https:\/\/www.whmcssmarters.com\/wp-json\/pum\/v1"};
+var pum_sub_vars = {"ajaxurl":"https:\/\/www.whmcssmarters.com\/wp-admin\/admin-ajax.php","message_position":"top"};
+var pum_popups = {"pum-11509":{"triggers":[{"type":"click_open","settings":{"cookie_name":"","extra_selectors":".termpopup"}}],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":"2962","size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"50px","custom_height_auto":true,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":"350","animation_origin":"right center","open_sound":"none","custom_sound":"","location":"center","position_top":"0","position_bottom":"10","position_left":"10","position_right":"10","position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":"1999999999","close_button_delay":"0","fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":"0","close_on_overlay_click":true,"close_on_esc_press":true,"close_on_f4_press":true,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":11509,"slug":"term-and-condition"},"pum-2989":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":2989,"slug":"android-page-offer"},"pum-5063":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":5063,"slug":"windowsapp"},"pum-6678":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":6678,"slug":"webplayer-addon"},"pum-2968":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":2968,"slug":"xtreme-page-offer"},"pum-2985":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","open_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":2985,"slug":"stalker-page-offer"},"pum-4819":{"triggers":[],"cookies":[],"disable_on_mobile":false,"disable_on_tablet":false,"atc_promotion":null,"explain":null,"type_section":null,"theme_id":2962,"size":"medium","responsive_min_width":"0%","responsive_max_width":"100%","custom_width":"640px","custom_height_auto":false,"custom_height":"380px","scrollable_content":false,"animation_type":"fade","animation_speed":350,"animation_origin":"center top","op100 87956    0 87892  100    64  33129     24  0:00:02  0:00:02 --:--:-- 33153
+en_sound":"none","custom_sound":"","location":"center top","position_top":100,"position_bottom":0,"position_left":0,"position_right":0,"position_from_trigger":false,"position_fixed":false,"overlay_disabled":false,"stackable":false,"disable_reposition":false,"zindex":1999999999,"close_button_delay":0,"fi_promotion":null,"close_on_form_submission":false,"close_on_form_submission_delay":0,"close_on_overlay_click":false,"close_on_esc_press":false,"close_on_f4_press":false,"disable_form_reopen":false,"disable_accessibility":false,"theme_slug":"default-theme","id":4819,"slug":"webplayer-weekend-offer"}};
+/* ]]> */
+</script>
+<script type='text/javascript' src='//www.whmcssmarters.com/wp-content/uploads/pum/pum-site-scripts.js?defer&#038;generated=1656669010&#038;ver=1.16.2' id='popup-maker-site-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-content/plugins/divi-builder/core/admin/js/common.js?ver=4.13.1' id='et-core-common-js'></script>
+<script type='text/javascript' src='https://www.whmcssmarters.com/wp-includes/js/wp-embed.min.js?ver=5.8.4' id='wp-embed-js'></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RFR2L0TY3S"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RFR2L0TY3S');
+</script>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/56d15738343e11f1034b38d3/default';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+</html>
+20220826 08:36:34 vpnpanel setup: INFO: removing script /root/new.sh 
+20220826 08:36:34 vpnpanel setup: INFO: script /root/new.sh has been removed

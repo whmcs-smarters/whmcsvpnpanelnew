@@ -1,0 +1,17 @@
+.color-box code{background:transparent;padding:0;font-size:13.4px}
+.color-box code a{background:transparent;margin:0}
+.color-box{margin-top:20px;padding-left:17px}
+.color-box p.extra{padding-top:5px}
+.color-box strong{font-size:16px;padding-right:5px;font-family:CuprumFFU,"Trebuchet MS",Arial,sans-serif}
+.color-box .shadow{margin:0}
+.space{margin-bottom:25px!important}
+.shadow{margin:0}
+.shadow{background:#F7F8F9; padding:3px; margin:10px 0;}
+.info-tab{width:36px;height:50px;float:left;margin-left:-21px;position:relative;top:3px;background:url(https://www.tutorialrepublic.com/lib/images/sprite.png) no-repeat}
+.tip-icon{background-position:0 -60px}
+.tip-box code,.tip-box a{color:#4d8721}
+.tip-box a:hover{color:#000}
+.tip-box{color: #bf4549;
+background: #efc2d3;
+}
+.tip-box{padding:15px 15px 10px 34px} 
