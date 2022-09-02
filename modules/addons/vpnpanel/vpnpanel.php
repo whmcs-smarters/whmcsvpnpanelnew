@@ -1,1051 +1,717 @@
-<?php
-
-if (!defined("WHMCS")) {
-    die("This file cannot be accessed directly");
-}
-
-require_once __DIR__ . '/lib/Admin/AdminDispatcher.php';
-require_once __DIR__ . '/lib/Admin/Controller.php';
-require_once __DIR__ . '/lib/Client/ClientDispatcher.php';
-require_once __DIR__ . '/lib/Client/Controller.php';
-
-use WHMCS\Database\Capsule;
-
-include_once 'hooks.php';
-
-function vpnpanel_config() {
-    $configarray = array(
-        'name' => 'VPN Panel', // Display name for your module
-        'description' => 'The module provide the VPN User and Reseller Management.', // Description displayed within the admin interface
-        'author' => '<img src="../modules/addons/vpnpanel/whmcssmarters.png"><br><a href="https://whmcssmarters.com/" target="_blank">WHMCS Smarters</a>',
-        'language' => 'english', // Default language
-        'version' => '2.10', // Version number 
-        "fields" => array(
-            "licenseregto" => array(
-                "FriendlyName" => "License Registered To",
-                "Description" => "Not Available"
-            ),
-            "licenseregmail" => array(
-                "FriendlyName" => "License Registered Email",
-                "Description" => "Not Available"
-            ),
-            "licenseduedate" => array(
-                "FriendlyName" => "License Due Date",
-                "Description" => "Not Available"
-            ),
-            "licensestatus" => array(
-                "FriendlyName" => "License Status",
-                "Description" => "Not Available"
-            ),
-            "license" => array(
-                "FriendlyName" => "License",
-                "Type" => "text",
-                "Size" => "35"
-            ),
-            "deletetables" => array(
-                "FriendlyName" => "Delete Records",
-                "Type" => "yesno",
-                "Size" => "25",
-                "Description" => "Tick to check it should delete all the tables relative to this module on deactivation"
-            ),
-            "downloadbutton" => array("FriendlyName" => "Download Cetificate Button","Type" => "yesno", "Description" => "Tick to Show Download Button On Client Area."),
-        )
-    );
-
-
-    $licenseinfo = vpnpanel_doCheckLicense();
-    if ($licenseinfo['status'] != 'licensekeynotfound') {
-        if ($licenseinfo['status'] == 'Active') {
-            if (isset($licenseinfo['localkey']) && !empty($licenseinfo['localkey'])) {
-                $moduledata = Capsule::table('tbladdonmodules')
-                        ->where('module', '=', 'vpnpanel')
-                        ->where('setting', '=', 'localkey')
-                        ->get();
-                if (isset($moduledata[0]->setting) && !empty($moduledata[0]->setting)) {
-                    Capsule::table('tbladdonmodules')
-                            ->where('setting', 'localkey')
-                            ->where('module', 'vpnpanel')
-                            ->update(['value' => $licenseinfo['localkey']]);
-                } else {
-                    Capsule::table('tbladdonmodules')->insert(
-                            ['setting' => 'localkey', 'value' => $licenseinfo['localkey'], 'module' => 'vpnpanel']
-                    );
-                }
-            }
-        }
-        if ($licenseinfo['registeredname']) {
-            $configarray['fields']['licenseregto']['Description'] = $licenseinfo['registeredname'];
-        }
-        if ($licenseinfo['email']) {
-            $configarray['fields']['licenseregmail']['Description'] = $licenseinfo['email'];
-        }
-        if ($licenseinfo['nextduedate']) {
-            $configarray['fields']['licenseduedate']['Description'] = $licenseinfo['nextduedate'];
-        }
-        $configarray['fields']['licensestatus']['Description'] = $licenseinfo['status'];
-        $configarray['fields']['license']['Value'] = $licenseinfo['licensekey'];
-    }
-    return $configarray;
-}
-
-function vpnpanel_doCheckLicense() {
-    $result = Capsule::table('tbladdonmodules')->where('module', '=', 'vpnpanel')->get();
-    foreach ($result as $row) {
-        $settings[$row->setting] = $row->value;
-    }
-    if ($settings['license']) {
-        $localkey = $settings['localkey'];
-        $licenseinfo = $result = vpnpanel_checkLicense($settings['license'], $localkey);
-        if ($licenseinfo['status'] == 'Active') {
-            if (isset($licenseinfo['localkey']) && !empty($licenseinfo['localkey'])) {
-                $moduledata = Capsule::table('tbladdonmodules')
-                        ->where('module', '=', 'vpnpanel')
-                        ->where('setting', '=', 'localkey')
-                        ->get();
-                if (isset($moduledata[0]->setting) && !empty($moduledata[0]->setting)) {
-                    Capsule::table('tbladdonmodules')
-                            ->where('setting', 'localkey')
-                            ->where('module', 'vpnpanel')
-                            ->update(['value' => $licenseinfo['localkey']]);
-                } else {
-                    Capsule::table('tbladdonmodules')->insert(
-                            ['setting' => 'localkey', 'value' => $licenseinfo['localkey'], 'module' => 'vpnpanel']
-                    );
-                }
-            }
-        }
-        $result['licensekey'] = $settings['license'];
-    } else {
-        $result['status'] = 'licensekeynotfound';
-    }
-    return $result;
-}
-
-function vpnpanel_checkLicense($licensekey, $localkey = '') {
-    $whmcsurl = "https://www.whmcssmarters.com/clients/";
-    $licensing_secret_key = "smartersvpnpanel";
-    $localkeydays = 7;
-    $allowcheckfaildays = 5;
-    $check_token = time() . md5(mt_rand(1000000000, 9999999999) . $licensekey);
-    $checkdate = date("Ymdhis");
-    $domain = $_SERVER['SERVER_NAME'];
-    $usersip = isset($_SERVER['SERVER_ADDR']) ? $_SERVER['SERVER_ADDR'] : $_SERVER['LOCAL_ADDR'];
-    $dirpath = dirname(__FILE__);
-    $verifyfilepath = 'modules/servers/licensing/verify.php';
-    $localkeyvalid = false;
-    if ($localkey) {
-        $localkey = str_replace("\n", '', $localkey); # Remove the line breaks
-        $localdata = substr($localkey, 0, strlen($localkey) - 32); # Extract License Data
-        $md5hash = substr($localkey, strlen($localkey) - 32); # Extract MD5 Hash
-        if ($md5hash == md5($localdata . $licensing_secret_key)) {
-            $localdata = strrev($localdata); # Reverse the string
-            $md5hash = substr($localdata, 0, 32); # Extract MD5 Hash
-            $localdata = substr($localdata, 32); # Extract License Data
-            $localdata = base64_decode($localdata);
-            $localkeyresults = unserialize($localdata);
-            $originalcheckdate = $localkeyresults['checkdate'];
-            if ($md5hash == md5($originalcheckdate . $licensing_secret_key)) {
-                $localexpiry = date("Ymdhis", mktime(date("h"), date("i"), date("s"), date("m"), date("d") - $localkeydays, date("Y")));
-                if ($originalcheckdate > $localexpiry) {
-                    $localkeyvalid = true;
-                    $results = $localkeyresults;
-                    $validdomains = explode(',', $results['validdomain']);
-                    if (!in_array($_SERVER['SERVER_NAME'], $validdomains)) {
-                        $localkeyvalid = false;
-                        $localkeyresults['status'] = "Invalid";
-                        $results = array();
-                    }
-                    $validips = explode(',', $results['validip']);
-                    if (!in_array($usersip, $validips)) {
-                        $localkeyvalid = false;
-                        $localkeyresults['status'] = "Invalid";
-                        $results = array();
-                    }
-                    $validdirs = explode(',', $results['validdirectory']);
-                    if (!in_array($dirpath, $validdirs)) {
-                        $localkeyvalid = false;
-                        $localkeyresults['status'] = "Invalid";
-                        $results = array();
-                    }
-                }
-            }
-        }
-    }
-    if (!$localkeyvalid) {
-        $responseCode = 0;
-        $postfields = array(
-            'licensekey' => $licensekey,
-            'domain' => $domain,
-            'ip' => $usersip,
-            'dir' => $dirpath
-        );
-        if ($check_token)
-            $postfields['check_token'] = $check_token;
-        $query_string = '';
-        foreach ($postfields AS $k => $v) {
-            $query_string .= $k . '=' . urlencode($v) . '&';
-        }
-        if (function_exists('curl_exec')) {
-            $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $whmcsurl . $verifyfilepath);
-            curl_setopt($ch, CURLOPT_POST, 1);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $query_string);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 30);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            $data = curl_exec($ch);
-            $responseCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-            curl_close($ch);
-        } else {
-            $responseCodePattern = '/^HTTP\/\d+\.\d+\s+(\d+)/';
-            $fp = @fsockopen($whmcsurl, 80, $errno, $errstr, 5);
-            if ($fp) {
-                $newlinefeed = "\r\n";
-                $header = "POST " . $whmcsurl . $verifyfilepath . " HTTP/1.0" . $newlinefeed;
-                $header .= "Host: " . $whmcsurl . $newlinefeed;
-                $header .= "Content-type: application/x-www-form-urlencoded" . $newlinefeed;
-                $header .= "Content-length: " . @strlen($query_string) . $newlinefeed;
-                $header .= "Connection: close" . $newlinefeed . $newlinefeed;
-                $header .= $query_string;
-                $data = $line = '';
-                @stream_set_timeout($fp, 20);
-                @fputs($fp, $header);
-                $status = @socket_get_status($fp);
-                while (!@feof($fp) && $status) {
-                    $line = @fgets($fp, 1024);
-                    $patternMatches = array();
-                    if (!$responseCode && preg_match($responseCodePattern, trim($line), $patternMatches)) {
-                        $responseCode = (empty($patternMatches[1])) ? 0 : $patternMatches[1];
-                    }
-                    $data .= $line;
-                    $status = @socket_get_status($fp);
-                }
-                @fclose($fp);
-            }
-        }
-        if ($responseCode != 200) {
-            $localexpiry = date("Ymdhis", mktime(date("h"), date("i"), date("s"), date("m"), date("d") - ($localkeydays + $allowcheckfaildays), date("Y")));
-            if ($originalcheckdate > $localexpiry) {
-                $results = $localkeyresults;
-            } else {
-                $results = array();
-                $results['status'] = "Invalid";
-                $results['description'] = "Remote Check Failed";
-                return $results;
-            }
-        } else {
-            preg_match_all('/<(.*?)>([^<]+)<\/\\1>/i', $data, $matches);
-            $results = array();
-            foreach ($matches[1] AS $k => $v) {
-                $results[$v] = $matches[2][$k];
-            }
-        }
-        if (!is_array($results)) {
-            die("Invalid License Server Response");
-        }
-        if ($results['md5hash']) {
-            if ($results['md5hash'] != md5($licensing_secret_key . $check_token)) {
-                $results['status'] = "Invalid";
-                $results['description'] = "MD5 Checksum Verification Failed";
-                return $results;
-            }
-        }
-        if ($results['status'] == "Active") {
-            $results['checkdate'] = $checkdate;
-            $data_encoded = serialize($results);
-            $data_encoded = base64_encode($data_encoded);
-            $data_encoded = md5($checkdate . $licensing_secret_key) . $data_encoded;
-            $data_encoded = strrev($data_encoded);
-            $data_encoded = $data_encoded . md5($data_encoded . $licensing_secret_key);
-            $data_encoded = wordwrap($data_encoded, 80, "\n", true);
-            $results['localkey'] = $data_encoded;
-        }
-        $results['remotecheck'] = true;
-    }
-    unset($postfields, $data, $matches, $whmcsurl, $licensing_secret_key, $checkdate, $usersip, $localkeydays, $allowcheckfaildays, $md5hash);
-    return $results;
-}
-
-function vpnpanel_activate() {
-    // Create custom tables and schema required by your module
-    try {
-        if (!Capsule::schema()->hasTable('mod_vpn_applinks')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_applinks', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->text('appname');
-                        $table->text('applink');
-                        $table->text('appfor');
-                    }
-            );
-        }if (!Capsule::schema()->hasTable('mod_vpn_api')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_api', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->text('setting');
-                        $table->text('value');
-                    }
-            );
-        }if (!Capsule::schema()->hasTable('mod_vpn_assignpackages')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_assignpackages', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->text('resellerid');
-                        $table->text('assigngroup');
-                        $table->text('products');
-                    }
-            );
-        }
-        if (!Capsule::schema()->hasTable('mod_vpn_assignpackages_superresellers')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_assignpackages_superresellers', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->text('resellerid');
-                        $table->text('assigngroup');
-                        $table->text('products');
-                    }
-            );
-        }if (!Capsule::schema()->hasTable('server_list')) {
-            Capsule::schema()
-                    ->create(
-                            'server_list', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('server_id');
-                        $table->string('server_name', 255);
-                        $table->string('flag', 255);
-                        $table->string('server_ip', 255);
-                        $table->string('server_ipv4', 255);
-                        $table->string('server_category', 255);
-                        $table->integer('sshport');
-                        $table->integer('server_port');
-                        $table->integer('mainserver');
-                        $table->string('sshpass', 255);
-                        $table->integer('status');
-                        $table->string('pskkey',190);
-                        $table->string('max_connection',50);
-                        $table->string('createdUploaded', 50);
-                        $table->string('bandwidth_usage', 50);
-                        $table->string('cpu', 50);
-                        $table->string('disk', 50);
-                        $table->string('memory', 50);
-                        $table->string('uptime', 190);
-                        $table->string('server_group', 30)->default('All');
-                        $table->timestamp('created_at')->useCurrent();
-                    }
-            );
-        }
-        if (!Capsule::schema()->hasTable('lb_server_list')) {
-            Capsule::schema()
-                    ->create(
-                            'lb_server_list', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('server_id');
-                        $table->integer('relid');
-                        $table->string('server_name', 255);
-                        $table->string('flag', 255);
-                        $table->string('server_ip', 255);
-                        $table->string('server_ipv4', 255);
-                        $table->string('server_category', 255);
-                        $table->integer('sshport');
-                        $table->integer('server_port');
-                        $table->string('sshpass', 255);
-                        $table->integer('status');
-                        $table->string('createdUploaded', 255);
-                        $table->string('max_connection',255);
-                        $table->string('pskkey',255);
-                        $table->timestamp('created_at')->useCurrent();
-                    }
-            );
-        }if (!Capsule::schema()->hasTable('vpnmaxconnections')) {
-            Capsule::schema()
-                    ->create(
-                            'vpnmaxconnections', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('userid', 255);
-                        $table->string('connection', 255);
-                        $table->string('macAddress', 255);
-                    }
-            );
-        }
-
-        if (!Capsule::schema()->hasTable('mod_clients_cert')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_clients_cert', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('filename', 255);
-                        $table->string('clientid', 255)->default('0');
-                        $table->string('serviceid', 255)->default('0');
-                        $table->longText('content');
-                        $table->string('server_ip', 255);
-                        $table->timestamp('created_at')->useCurrent();
-                    }
-            );
-        }
-
-        if (!Capsule::schema()->hasTable('mod_server_certs')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_server_certs', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('filename', 255);
-                        $table->string('server_ip', 255);
-                        $table->longText('content');
-                        $table->timestamp('created_at')->useCurrent();
-                    }
-            );
-        }
-
-        if (!Capsule::schema()->hasTable('mod_vpn_serverconfig')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_serverconfig', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->string('setting', 255);
-                        $table->string('value', 255);
-                    }
-            );
-            Capsule::table('mod_vpn_serverconfig')->insert([
-                ['setting' => 'token', 'value' => "7cf0ed77a6c9a8388d21e43e760baba07ad86d61"],
-                ['setting' => 'ipv6', 'value' => "n|No"],
-                ['setting' => 'port', 'value' => "1|1194"],
-                ['setting' => 'customport', 'value' => ""],
-                ['setting' => 'protocol', 'value' => "udp|UDP"],
-                ['setting' => 'dns', 'value' => "3|Cloudflare (Anycast: worldwide)"],
-                ['setting' => 'dns1', 'value' => ""],
-                ['setting' => 'dns2', 'value' => ""],
-                ['setting' => 'saveconfig', 'value' => "Save Changes"],
-            ]);
-
-
-        }
-
-        if (!Capsule::schema()->hasTable('mod_vpn_settings')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_settings', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('settings', 255);
-                        $table->string('value', 255);
-                    }
-            );
-        }
-        if (!Capsule::schema()->hasTable('mod_vpn_groups')) {
-            Capsule::schema()
-                    ->create(
-                            'mod_vpn_groups', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('groupName', 255);
-                    }
-            );
-        }
-        if (!Capsule::schema()->hasTable('vpnmywebsite')) {
-            Capsule::schema()
-                    ->create(
-                            'vpnmywebsite', function ($table) {
-                        /** @var \Illuminate\Database\Schema\Blueprint $table */
-                        $table->increments('id');
-                        $table->string('uid');
-                        $table->string('logo');
-                        $table->string('companyName');
-                        $table->string('tagline');
-                        $table->string('domainURL');
-                        $table->string('tandc');
-                        $table->string('privacy');
-                        $table->string('websiteURL');
-                        $table->string('headColor');
-                        $table->string('textColor');
-                        $table->string('products');
-                        $table->string('gateways');
-                        $table->string('status');
-                        $table->string('sep_vpn_panel');
-                        $table->string('sepvpn_panel_status');
-                    }
-            );
-        }
-        if (!Capsule::schema()->hasTable('tblvpnpaymentgateways')) {
-        Capsule::schema()->create(
-                    'tblvpnpaymentgateways', function ($table) {
-                $table->string('uid');
-                $table->text('gateway');
-                $table->text('setting');
-                $table->text('value');
-                $table->integer('order');
-            });
-        }
-        if (!Capsule::schema()->hasTable('vpnpackageprice')) {
-            Capsule::schema()->create(
-                    'vpnpackageprice', function ($table) {
-                $table->increments('id');
-                $table->string('uid');
-                $table->string('products');
-                $table->string('priceMonthly');
-                $table->string('priceQuarterly');
-                $table->string('priceSemiannually');
-                $table->string('priceAnnually');
-                $table->string('priceBiennially');
-                $table->string('priceTriennially');
-            }
-            );
-        }
-
-        
-
-
-        if (!Capsule::schema()->hasTable('radacct')) {
-            Capsule::statement("CREATE TABLE radacct (
-  radacctid bigint(21) NOT NULL auto_increment,
-  acctsessionid varchar(64) NOT NULL default '',
-  acctuniqueid varchar(32) NOT NULL default '',
-  username varchar(64) NOT NULL default '',
-  realm varchar(64) default '',
-  nasipaddress varchar(15) NOT NULL default '',
-  nasportid varchar(15) default NULL,
-  nasporttype varchar(32) default NULL,
-  acctstarttime datetime NULL default NULL,
-  acctupdatetime datetime NULL default NULL,
-  acctstoptime datetime NULL default NULL,
-  acctinterval int(12) default NULL,
-  acctsessiontime int(12) unsigned default NULL,
-  acctauthentic varchar(32) default NULL,
-  connectinfo_start varchar(50) default NULL,
-  connectinfo_stop varchar(50) default NULL,
-  acctinputoctets bigint(20) default NULL,
-  acctoutputoctets bigint(20) default NULL,
-  calledstationid varchar(50) NOT NULL default '',
-  callingstationid varchar(50) NOT NULL default '',
-  acctterminatecause varchar(32) NOT NULL default '',
-  servicetype varchar(32) default NULL,
-  framedprotocol varchar(32) default NULL,
-  framedipaddress varchar(15) NOT NULL default '',
-  framedipv6address varchar(15) NOT NULL default '',
-  framedipv6prefix varchar(15) NOT NULL default '',
-  framedinterfaceid varchar(32) NOT NULL default '',
-  delegatedipv6prefix varchar(32) NOT NULL default '',
-  PRIMARY KEY (radacctid),
-  UNIQUE KEY acctuniqueid (acctuniqueid),
-  KEY username (username),
-  KEY framedipaddress (framedipaddress),
-  KEY acctsessionid (acctsessionid),
-  KEY acctsessiontime (acctsessiontime),
-  KEY acctstarttime (acctstarttime),
-  KEY acctinterval (acctinterval),
-  KEY acctstoptime (acctstoptime),
-  KEY nasipaddress (nasipaddress)
-) ENGINE = INNODB;");
-        }
-if (!Capsule::schema()->hasTable('radcheck')) {
-            Capsule::statement("CREATE TABLE radcheck (
-  id int(11) unsigned NOT NULL auto_increment,
-  username varchar(64) NOT NULL default '',
-  attribute varchar(64)  NOT NULL default '',
-  op char(2) NOT NULL DEFAULT '==',
-  value varchar(253) NOT NULL default '',
-  PRIMARY KEY  (id),
-  KEY username (username(32))
-);");
-        }
-
-if (!Capsule::schema()->hasTable('radgroupcheck')) {
-            Capsule::statement("CREATE TABLE radgroupcheck (
-  id int(11) unsigned NOT NULL auto_increment,
-  groupname varchar(64) NOT NULL default '',
-  attribute varchar(64)  NOT NULL default '',
-  op char(2) NOT NULL DEFAULT '==',
-  value varchar(253)  NOT NULL default '',
-  PRIMARY KEY  (id),
-  KEY groupname (groupname(32))
-);");
-        }
-        if (!Capsule::schema()->hasTable('radgroupreply')) {
-            Capsule::statement("CREATE TABLE radgroupreply (
-  id int(11) unsigned NOT NULL auto_increment,
-  groupname varchar(64) NOT NULL default '',
-  attribute varchar(64)  NOT NULL default '',
-  op char(2) NOT NULL DEFAULT '=',
-  value varchar(253)  NOT NULL default '',
-  PRIMARY KEY  (id),
-  KEY groupname (groupname(32))
-);");
-        }
-        if (!Capsule::schema()->hasTable('radreply')) {
-            Capsule::statement("CREATE TABLE radreply (
-  id int(11) unsigned NOT NULL auto_increment,
-  username varchar(64) NOT NULL default '',
-  attribute varchar(64) NOT NULL default '',
-  op char(2) NOT NULL DEFAULT '=',
-  value varchar(253) NOT NULL default '',
-  PRIMARY KEY  (id),
-  KEY username (username(32))
-);");
-        }
-        if (!Capsule::schema()->hasTable('radusergroup')) {
-            Capsule::statement("CREATE TABLE radusergroup (
-  username varchar(64) NOT NULL default '',
-  groupname varchar(64) NOT NULL default '',
-  priority int(11) NOT NULL default '1',
-  KEY username (username(32))
-);");
-        }
-
-        if (!Capsule::schema()->hasTable('radpostauth')) {
-            Capsule::statement("CREATE TABLE radpostauth (
-  id int(11) NOT NULL auto_increment,
-  username varchar(64) NOT NULL default '',
-  pass varchar(64) NOT NULL default '',
-  reply varchar(32) NOT NULL default '',
-  authdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY  (id)
-) ENGINE = INNODB;");
-        }
-
-        if (!Capsule::schema()->hasTable('nas')) {
-            Capsule::statement("CREATE TABLE nas (
-  id int(10) NOT NULL auto_increment,
-  nasname varchar(128) NOT NULL,
-  shortname varchar(32),
-  type varchar(30) DEFAULT 'other',
-  ports int(5),
-  secret varchar(60) DEFAULT 'secret' NOT NULL,
-  server varchar(64),
-  community varchar(50),
-  description varchar(200) DEFAULT 'RADIUS Client',
-  PRIMARY KEY (id),
-  KEY nasname (nasname)
-);");
-        }
-
-        
-
-
-        return [
-            // Supported values here include: success, error or info
-            'status' => 'success',
-            'description' => 'Smart VPN Billing Panel to manage VPN Servers, VPN Clients, VPN Reseller, VPN Package automatically.',
-        ];
-    } catch (\Exception $e) {
-        return [
-            // Supported values here include: success, error or info
-            'status' => "error",
-            'description' => 'Unable to activate module: ' . $e->getMessage(),
-        ];
-    }
-}
-
-function vpnpanel_deactivate() {
-    $results = Capsule::table('tbladdonmodules')->where('module', '=', 'vpnpanel')->get();
-    foreach ($results as $row) {
-        $settings[$row->setting] = $row->value;
-    }
-    if (isset($settings['deletetables']) && !empty($settings['deletetables'])) {
-        if ($settings['deletetables'] == 'on') {
-            Capsule::schema()
-                    ->dropIfExists('mod_vpn_applinks');
-            Capsule::schema()
-                    ->dropIfExists('mod_vpn_assignpackages');
-            Capsule::schema()
-                    ->dropIfExists('mod_vpn_assignpackages_superresellers');       
-            Capsule::schema()
-                    ->dropIfExists('server_list');
-            Capsule::schema()
-                    ->dropIfExists('lb_server_list');
-            Capsule::schema()
-                    ->dropIfExists('vpnmaxconnections');
-            Capsule::schema()
-                    ->dropIfExists('mod_clients_cert');
-            Capsule::schema()
-                    ->dropIfExists('mod_server_certs');
-            /*Capsule::schema()
-                    ->dropIfExists('mod_vpn_serverconfig');*/
-        }
-    }
-    return array(
-        'status' => 'success', // Supported values here include: success, error or info
-        'description' => ' VPN Dashboard modules deactivated successfully!',
-    );
-}
-
-function vpnpanel_output($vars) {
-    $checklicense = vpnpanel_doCheckLicense();
-    if ($checklicense["status"] != "Active" && $_REQUEST['action'] != 'vpn_servers') {
-        echo ' 
-<div class="alert alert-danger" role="alert">
-  <h4 class="alert-heading">Your license is expired or Invalid!</h4>
-  <p>For more Infomation <a target="_blank" href="https://www.whmcssmarters.com/clients/index.php?rp=/knowledgebase/149/Issues---License-Expired-Service-Suspended-or-disabled.html" class="alert-link">click here</a></p>
-  <hr>
-  <p class="mb-0"><a target="_blank" href="configaddonmods.php" class="alert-link">Here you can check your licnese key status</a> (Setup > Addon Modules > VPN Panel )</p>
-</div>';
-    }
-    if (getapi() == '') {
-        echo ' 
- <div class="alert alert-danger" role="alert">
-    <h4 class="alert-heading">Warning!</h4> 
-    <p>Your API Key is not found, Please generate your API Key <a class="alert-link" href="addonmodules.php?module=vpnpanel&action=vpn_api">here</a></p> 
-</div>';
-    }
-    // Get common module parameters
-    $modulelink = $vars['modulelink'];
-    $version = $vars['version'];
-    $_lang = $vars['_lang'];
-    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-    $dispatcher = new AdminDispatcher();
-    $response = $dispatcher->dispatch($action, $vars);
-    echo $response;
-}
-
-function vpnpanel_clientarea($vars) {
-    // Get common module parameters
-    $modulelink = $vars['modulelink']; // eg. index.php?m=addonmodule
-    $version = $vars['version']; // eg. 1.0
-    $_lang = $vars['_lang']; // an array of the currently loaded language variables
-    // Get module configuration parameters
-    $configTextField = $vars['Text Field Name'];
-    $configPasswordField = $vars['Password Field Name'];
-    $configCheckboxField = $vars['Checkbox Field Name'];
-    $configDropdownField = $vars['Dropdown Field Name'];
-    $configRadioField = $vars['Radio Field Name'];
-    $configTextareaField = $vars['Textarea Field Name'];
-
-    /**
-     * Dispatch and handle request here. What follows is a demonstration of one
-     * possible way of handling this using a very basic dispatcher implementation.
-     */
-    $action = isset($_REQUEST['action']) ? $_REQUEST['action'] : '';
-    $clientgroip = Capsule::table('tblclients')->where('id', '=', $_SESSION['uid'])->get();
-    $clientgroup = Capsule::table('tblclientgroups')->where('id', '=', $clientgroip[0]->groupid)->get();
-    if ($clientgroup[0]->groupname == 'Reseller') {
-        $group['checkgroup'] = 'reseller';
-    } elseif ($clientgroup[0]->groupname == 'Super-Reseller') {
-        $group['checkgroup'] = 'superreseller';
-    }
- //$zip = new ZipArchive;
-    $dispatcher = new ClientDispatcher();
-   $response = $dispatcher->dispatch($action, $vars/*, $zip*/);
-    $affdetails = $dispatcher->dispatch('CheckAffCredit', $vars/*, $zip*/);
-    $group['totalcredit'] = $affdetails->credit;
-    $response['vars'] = array_merge($response['vars'], $group);
-    return $response;
-}
-
-
-function vpnpanel_upgrade($vars)
-{
-    $currentlyInstalledVersion = $vars['version'];
-    // Perform SQL schema changes required by the upgrade to version 1.1 of your module
-//     if($currentlyInstalledVersion < 2.2)
-//         {
-// if (Capsule::schema()->hasTable('mod_server_certs')) {
-//                 Capsule::statement('ALTER TABLE mod_server_certs ADD server_ip VARCHAR(255) NOT NULL');
-//             }
-// Capsule::statement('ALTER TABLE server_list CHANGE server_category server_category VARCHAR(255) NOT NULL');
-
-//         if (!Capsule::schema()->hasTable('radacct')) {
-//             Capsule::statement("CREATE TABLE radacct (
-//   radacctid bigint(21) NOT NULL auto_increment,
-//   acctsessionid varchar(64) NOT NULL default '',
-//   acctuniqueid varchar(32) NOT NULL default '',
-//   username varchar(64) NOT NULL default '',
-//   realm varchar(64) default '',
-//   nasipaddress varchar(15) NOT NULL default '',
-//   nasportid varchar(15) default NULL,
-//   nasporttype varchar(32) default NULL,
-//   acctstarttime datetime NULL default NULL,
-//   acctupdatetime datetime NULL default NULL,
-//   acctstoptime datetime NULL default NULL,
-//   acctinterval int(12) default NULL,
-//   acctsessiontime int(12) unsigned default NULL,
-//   acctauthentic varchar(32) default NULL,
-//   connectinfo_start varchar(50) default NULL,
-//   connectinfo_stop varchar(50) default NULL,
-//   acctinputoctets bigint(20) default NULL,
-//   acctoutputoctets bigint(20) default NULL,
-//   calledstationid varchar(50) NOT NULL default '',
-//   callingstationid varchar(50) NOT NULL default '',
-//   acctterminatecause varchar(32) NOT NULL default '',
-//   servicetype varchar(32) default NULL,
-//   framedprotocol varchar(32) default NULL,
-//   framedipaddress varchar(15) NOT NULL default '',
-//   PRIMARY KEY (radacctid),
-//   UNIQUE KEY acctuniqueid (acctuniqueid),
-//   KEY username (username),
-//   KEY framedipaddress (framedipaddress),
-//   KEY acctsessionid (acctsessionid),
-//   KEY acctsessiontime (acctsessiontime),
-//   KEY acctstarttime (acctstarttime),
-//   KEY acctinterval (acctinterval),
-//   KEY acctstoptime (acctstoptime),
-//   KEY nasipaddress (nasipaddress)
-// ) ENGINE = INNODB;");
-//         }
-// if (!Capsule::schema()->hasTable('radcheck')) {
-//             Capsule::statement("CREATE TABLE radcheck (
-//   id int(11) unsigned NOT NULL auto_increment,
-//   username varchar(64) NOT NULL default '',
-//   attribute varchar(64)  NOT NULL default '',
-//   op char(2) NOT NULL DEFAULT '==',
-//   value varchar(253) NOT NULL default '',
-//   PRIMARY KEY  (id),
-//   KEY username (username(32))
-// );");
-//         }
-
-// if (!Capsule::schema()->hasTable('radgroupcheck')) {
-//             Capsule::statement("CREATE TABLE radgroupcheck (
-//   id int(11) unsigned NOT NULL auto_increment,
-//   groupname varchar(64) NOT NULL default '',
-//   attribute varchar(64)  NOT NULL default '',
-//   op char(2) NOT NULL DEFAULT '==',
-//   value varchar(253)  NOT NULL default '',
-//   PRIMARY KEY  (id),
-//   KEY groupname (groupname(32))
-// );");
-//         }
-//         if (!Capsule::schema()->hasTable('radgroupreply')) {
-//             Capsule::statement("CREATE TABLE radgroupreply (
-//   id int(11) unsigned NOT NULL auto_increment,
-//   groupname varchar(64) NOT NULL default '',
-//   attribute varchar(64)  NOT NULL default '',
-//   op char(2) NOT NULL DEFAULT '=',
-//   value varchar(253)  NOT NULL default '',
-//   PRIMARY KEY  (id),
-//   KEY groupname (groupname(32))
-// );");
-//         }
-//         if (!Capsule::schema()->hasTable('radreply')) {
-//             Capsule::statement("CREATE TABLE radreply (
-//   id int(11) unsigned NOT NULL auto_increment,
-//   username varchar(64) NOT NULL default '',
-//   attribute varchar(64) NOT NULL default '',
-//   op char(2) NOT NULL DEFAULT '=',
-//   value varchar(253) NOT NULL default '',
-//   PRIMARY KEY  (id),
-//   KEY username (username(32))
-// );");
-//         }
-//         if (!Capsule::schema()->hasTable('radusergroup')) {
-//             Capsule::statement("CREATE TABLE radusergroup (
-//   username varchar(64) NOT NULL default '',
-//   groupname varchar(64) NOT NULL default '',
-//   priority int(11) NOT NULL default '1',
-//   KEY username (username(32))
-// );");
-//         }
-
-//         if (!Capsule::schema()->hasTable('radpostauth')) {
-//             Capsule::statement("CREATE TABLE radpostauth (
-//   id int(11) NOT NULL auto_increment,
-//   username varchar(64) NOT NULL default '',
-//   pass varchar(64) NOT NULL default '',
-//   reply varchar(32) NOT NULL default '',
-//   authdate timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-//   PRIMARY KEY  (id)
-// ) ENGINE = INNODB;");
-//         }
-
-//         if (!Capsule::schema()->hasTable('nas')) {
-//             Capsule::statement("CREATE TABLE nas (
-//   id int(10) NOT NULL auto_increment,
-//   nasname varchar(128) NOT NULL,
-//   shortname varchar(32),
-//   type varchar(30) DEFAULT 'other',
-//   ports int(5),
-//   secret varchar(60) DEFAULT 'secret' NOT NULL,
-//   server varchar(64),
-//   community varchar(50),
-//   description varchar(200) DEFAULT 'RADIUS Client',
-//   PRIMARY KEY (id),
-//   KEY nasname (nasname)
-// );");
-//         }
-//         }
-
-//         if($currentlyInstalledVersion < 2.3)
-//         {
-//             Capsule::statement('ALTER TABLE server_list CHANGE server_category server_category VARCHAR(255) NOT NULL');
-            
-//         }
-
-//         if($currentlyInstalledVersion < 2.4)
-//         {
-//             // if (Capsule::schema()->hasTable('server_list')) {
-//             //     Capsule::statement('ALTER TABLE server_list ADD server_group VARCHAR(30) NOT NULL DEFAULT "All"');
-//             // }
-//             if (!Capsule::schema()->hasTable('mod_vpn_groups')) {
-//             Capsule::schema()
-//                     ->create(
-//                             'mod_vpn_groups', function ($table) {
-//                         /** @var \Illuminate\Database\Schema\Blueprint $table */
-//                         $table->increments('id');
-//                         $table->string('groupName', 255);
-//                     }
-//             );
-//         }
-//             if (!Capsule::schema()->hasTable('mod_vpn_settings')) {
-//             Capsule::schema()
-//                     ->create(
-//                             'mod_vpn_settings', function ($table) {
-//                         /** @var \Illuminate\Database\Schema\Blueprint $table */
-//                         $table->increments('id');
-//                         $table->string('settings', 255);
-//                         $table->string('value', 255);
-//                     }
-//             );
-//         }
-//         }
-// if($currentlyInstalledVersion < 2.7)
-//         {
-//             if (!Capsule::schema()->hasTable('vpnmywebsite')) {
-//             Capsule::schema()
-//                     ->create(
-//                             'vpnmywebsite', function ($table) {
-//                         /** @var \Illuminate\Database\Schema\Blueprint $table */
-//                         $table->increments('id');
-//                         $table->string('uid');
-//                         $table->string('logo');
-//                         $table->string('companyName');
-//                         $table->string('tagline');
-//                         $table->string('domainURL');
-//                         $table->string('tandc');
-//                         $table->string('privacy');
-//                         $table->string('websiteURL');
-//                         $table->string('headColor');
-//                         $table->string('textColor');
-//                         $table->string('products');
-//                         $table->string('gateways');
-//                         $table->string('status');
-//                         $table->string('sep_vpn_panel');
-//                         $table->string('sepvpn_panel_status');
-//                     }
-//             );
-//         }
-//         else
-//         {
-//             if (Capsule::schema()->hasTable('vpnmywebsite')) {
-//                 Capsule::schema()->table('vpnmywebsite', function ($table) {
-//                   if (!Capsule::schema()->hasColumn('vpnmywebsite', 'sep_vpn_panel')) {
-//                 $table->timestamp('sep_vpn_panel');
-//                   } 
-//                   if (!Capsule::schema()->hasColumn('vpnmywebsite', 'sepvpn_panel_status')) {
-//                 $table->timestamp('sepvpn_panel_status');
-//                   } 
-//                 });
-//             }
-//         }
-//         if (!Capsule::schema()->hasTable('tblvpnpaymentgateways')) {
-//             Capsule::schema()->create(
-//                     'tblvpnpaymentgateways', function ($table) {
-//                 $table->string('uid');
-//                 $table->text('gateway');
-//                 $table->text('setting');
-//                 $table->text('value');
-//                 $table->integer('order');
-//             }
-//             );
-//         }
-//         if (!Capsule::schema()->hasTable('vpnDomainVerify')) {
-//             Capsule::schema()->create(
-//                     'vpnDomainVerify', function ($table) {
-//                 $table->increments('id');
-//                 $table->string('uid');
-//                 $table->string('verifyCode');
-//                 $table->string('status');
-//             }
-//             );
-//         }
-//         if (!Capsule::schema()->hasTable('vpnpackageprice')) {
-//             Capsule::schema()->create(
-//                     'vpnpackageprice', function ($table) {
-//                 $table->increments('id');
-//                 $table->string('uid');
-//                 $table->string('products');
-//                 $table->string('priceMonthly');
-//                 $table->string('priceQuarterly');
-//                 $table->string('priceSemiannually');
-//                 $table->string('priceAnnually');
-//                 $table->string('priceBiennially');
-//                 $table->string('priceTriennially');
-//             }
-//             );
-//         }
-
-//         if (!Capsule::schema()->hasTable('mod_vpn_assignpackages_superresellers')) {
-//             Capsule::schema()
-//                     ->create(
-//                             'mod_vpn_assignpackages_superresellers', function ($table) {
-//                         /** @var \Illuminate\Database\Schema\Blueprint $table */
-//                         $table->increments('id');
-//                         $table->text('resellerid');
-//                         $table->text('assigngroup');
-//                         $table->text('products');
-//                     }
-//             );
-//         }
-
-
-
-//     }
-//     if($currentlyInstalledVersion < 2.8)
-//         {
-
-//     // if (Capsule::schema()->hasTable('server_list')) {
-//     //         Capsule::statement('ALTER TABLE server_list ADD max_connection VARCHAR(30) NOT NULL DEFAULT "0"');
-//     //     }
-        
-//     // if (Capsule::schema()->hasTable('lb_server_list')) {
-//     //         Capsule::statement('ALTER TABLE lb_server_list ADD max_connection VARCHAR(30) NOT NULL DEFAULT "0"');
-//     //     }
-
-        
-
-//     }
-//     if($currentlyInstalledVersion <= 2.9)
-//         {
-//             /*if(Capsule::schema()->hasTable('radacct'))
-//         {
-//             Capsule::statement("ALTER TABLE radacct ADD framedipv6address varchar(15) NOT NULL default ''");
-//             Capsule::statement("ALTER TABLE radacct ADD framedipv6prefix varchar(15) NOT NULL default ''");
-//             Capsule::statement("ALTER TABLE radacct ADD framedinterfaceid varchar(32) NOT NULL default ''");
-//             Capsule::statement("ALTER TABLE radacct ADD delegatedipv6prefix varchar(32) NOT NULL default ''");
-//         }*/
-//         if (!Capsule::schema()->hasTable('tblvpnpaymentgateways')) {
-//         Capsule::schema()->create(
-//                     'tblvpnpaymentgateways', function ($table) {
-//                 $table->string('uid');
-//                 $table->text('gateway');
-//                 $table->text('setting');
-//                 $table->text('value');
-//                 $table->integer('order');
-//             });
-//         }
-//         if (!Capsule::schema()->hasTable('vpnpackageprice')) {
-//             Capsule::schema()->create(
-//                     'vpnpackageprice', function ($table) {
-//                 $table->increments('id');
-//                 $table->string('uid');
-//                 $table->string('products');
-//                 $table->string('priceMonthly');
-//                 $table->string('priceQuarterly');
-//                 $table->string('priceSemiannually');
-//                 $table->string('priceAnnually');
-//                 $table->string('priceBiennially');
-//                 $table->string('priceTriennially');
-//             }
-//             );
-//         }
-
-//         }
-        
-        }
-    
+<?php //005b1
+if(!extension_loaded('ionCube Loader')){$__oc=strtolower(substr(php_uname(),0,3));$__ln='ioncube_loader_'.$__oc.'_'.substr(phpversion(),0,3).(($__oc=='win')?'.dll':'.so');if(function_exists('dl')){@dl($__ln);}if(function_exists('_il_exec')){return _il_exec();}$__ln='/ioncube/'.$__ln;$__oid=$__id=realpath(ini_get('extension_dir'));$__here=dirname(__FILE__);if(strlen($__id)>1&&$__id[1]==':'){$__id=str_replace('\\','/',substr($__id,2));$__here=str_replace('\\','/',substr($__here,2));}$__rd=str_repeat('/..',substr_count($__id,'/')).$__here.'/';$__i=strlen($__rd);while($__i--){if($__rd[$__i]=='/'){$__lp=substr($__rd,0,$__i).$__ln;if(file_exists($__oid.$__lp)){$__ln=$__lp;break;}}}if(function_exists('dl')){@dl($__ln);}}else{die('The file '.__FILE__." is corrupted.\n");}if(function_exists('_il_exec')){return _il_exec();}echo("\nScript error: the ".(($cli=(php_sapi_name()=='cli')) ?'ionCube':'<a href="https://www.ioncube.com">ionCube</a>')." Loader for PHP needs to be installed.\n\nThe ionCube Loader is the industry standard PHP extension for running protected PHP code,\nand can usually be added easily to a PHP installation.\n\nFor Loaders please visit".($cli?":\n\nhttps://get-loader.ioncube.com\n\nFor":' <a href="https://get-loader.ioncube.com">get-loader.ioncube.com</a> and for')." an instructional video please see".($cli?":\n\nhttp://ioncu.be/LV\n\n":' <a href="http://ioncu.be/LV">http://ioncu.be/LV</a> ')."\n\n");exit(199);
+?>
+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
+WLnCIWBDU8dMhGiHraIuZiR5/W==
