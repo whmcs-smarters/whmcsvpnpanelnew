@@ -436,30 +436,7 @@
             </div>
         </a>
     </div>
-    <!--div class="col-lg-3 col-md-6">
-        <a href="{$modulelink}&action=productMapping">
-            <div class="panel panel-yellow panel_hvr">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-sitemap fa-3x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge"></div>
-                            <div>Product Mapping</div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="panel-footer">
-                    <span class="pull-left">Map Product</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                </div>
-
-            </div>
-        </a>
-    </div-->
+    
 
 
 </div>
