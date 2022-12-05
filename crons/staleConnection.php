@@ -1,5 +1,5 @@
 <?php
-include_once '/var/www/vhosts/smartersvpn.com/public/members/init.php';
+include_once '/var/www/html/init.php';
 
 use Illuminate\Database\Capsule\Manager as Capsule;
 //    logActivity('Stale Connection Check');
